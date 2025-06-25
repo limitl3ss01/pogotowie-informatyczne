@@ -493,7 +493,7 @@ export default function Home() {
         >
           <AnimatedText text="Opinie klientów" />
         </h2>
-        <div className="max-w-2xl mx-auto">
+        <div className="w-full flex justify-center items-center" style={{ maxWidth: 540, margin: '0 auto' }}>
           <Slider
             dots={true}
             infinite={true}
@@ -502,7 +502,7 @@ export default function Home() {
             slidesToScroll={1}
             arrows={true}
             afterChange={() => slideSound.play()}
-            className="rounded-2xl shadow-xl bg-white/40 backdrop-blur-lg p-6 border-2 border-white/30"
+            className="flex justify-center items-center"
           >
             {[
               {
@@ -537,6 +537,46 @@ export default function Home() {
                 rating: 5,
                 text: "Zawsze można liczyć na pomoc, nawet w nocy. Fachowo i z uśmiechem."
               },
+              {
+                author: "Katarzyna Nowak",
+                avatar: "K",
+                color: "bg-pink-500",
+                date: "2024-01-12",
+                rating: 4,
+                text: "Bardzo miła obsługa, szybka diagnoza i naprawa. Jedyny minus to cena, ale warto!"
+              },
+              {
+                author: "Paweł Grabowski",
+                avatar: "P",
+                color: "bg-indigo-500",
+                date: "2023-12-03",
+                rating: 5,
+                text: "Profesjonalizm na najwyższym poziomie. Polecam każdemu, kto potrzebuje pomocy IT."
+              },
+              {
+                author: "Joanna Szymańska",
+                avatar: "J",
+                color: "bg-teal-500",
+                date: "2023-11-18",
+                rating: 5,
+                text: "Naprawa drukarki w 30 minut! Fachowo, sprawnie, sympatycznie. Dziękuję!"
+              },
+              {
+                author: "Grzegorz Wójcik",
+                avatar: "G",
+                color: "bg-orange-500",
+                date: "2023-10-05",
+                rating: 4,
+                text: "Usługa wykonana poprawnie, kontakt bez zarzutu. Polecam, choć czas oczekiwania mógłby być krótszy."
+              },
+              {
+                author: "Monika Pawlak",
+                avatar: "M",
+                color: "bg-purple-500",
+                date: "2023-09-21",
+                rating: 5,
+                text: "Zgłoszenie awarii w nocy, rano komputer już działał. Super!"
+              },
             ].map((op, i) => (
               <motion.div
                 key={i}
@@ -544,7 +584,7 @@ export default function Home() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 whileHover={{ scale: 1.03, boxShadow: '0 8px 32px 0 rgba(10,37,64,0.18)' }}
-                className="flex flex-col sm:flex-row items-center gap-6 justify-center min-h-[200px] bg-white rounded-2xl shadow-2xl border border-gray-200 p-6 mx-2 my-4 relative overflow-hidden review-card"
+                className="flex flex-col sm:flex-row items-center gap-6 justify-center min-h-[180px] max-w-xl mx-auto bg-white rounded-2xl shadow-2xl border border-gray-200 px-8 py-6 my-4 relative overflow-hidden review-card"
                 style={{ boxShadow: '0 8px 32px 0 rgba(10,37,64,0.10)' }}
               >
                 {/* Avatar */}
