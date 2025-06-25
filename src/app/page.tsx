@@ -493,7 +493,7 @@ export default function Home() {
         >
           <AnimatedText text="Opinie klientów" />
         </h2>
-        <div className="w-full flex justify-center items-center" style={{ maxWidth: 540, margin: '0 auto' }}>
+        <div className="max-w-xl mx-auto">
           <Slider
             dots={true}
             infinite={true}
