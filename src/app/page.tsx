@@ -581,7 +581,7 @@ export default function Home() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.25, duration: 0.4 }}
                   >
-                    "{op.text}"
+                    „{op.text}”
                   </motion.p>
                   {/* Data */}
                   <span className="text-sm text-gray-500 mt-1">{new Date(op.date).toLocaleDateString('pl-PL', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
