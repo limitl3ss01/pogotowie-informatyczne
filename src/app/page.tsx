@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Bungee } from 'next/font/google';
-import { Particles } from "@tsparticles/react";
 import { motion } from "framer-motion";
 import { Howl } from 'howler';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import dynamic from "next/dynamic";
 
 const bungee = Bungee({ subsets: ['latin'], weight: '400' });
 
@@ -16,6 +16,9 @@ const clickSound = new Howl({ src: ['/click.mp3'], volume: 0.3 });
 
 // Dźwięk przewijania slidera opinii
 const slideSound = new Howl({ src: ['/slide.mp3'], volume: 0.2 });
+
+// Lazy load tsParticles
+const Particles = dynamic(() => import("@tsparticles/react").then(mod => mod.Particles), { ssr: false });
 
 // Komponent animowanego licznika
 const AnimatedCounter = ({ value, label, plus }: { value: number, label: string, plus?: boolean }) => {
@@ -62,6 +65,12 @@ const AnimatedText = ({ text, className, style }: { text: string, className?: st
     ))}
   </span>
 );
+
+// Detekcja mobile (prosta, na podstawie userAgent)
+function isMobile() {
+  if (typeof window === 'undefined') return false;
+  return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(window.navigator.userAgent);
+}
 
 export default function Home() {
   // Animacja grupy karetek
@@ -135,80 +144,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center text-gray-900 overflow-x-hidden" style={{position: 'relative', minHeight: '100vh', overflowX: 'hidden'}}>
-      {/* ANIMOWANE TŁO: tsParticles + animowany gradient */}
-      <div className="fixed inset-0 -z-10 animate-gradient-move pointer-events-none" style={{background: 'linear-gradient(135deg, #0a2540, #e52d27, #1e90ff, #e52d27, #0a2540)', minHeight: '100vh'}} />
-      {showParticles && (
-        <Particles
-          id="tsparticles"
-          className="fixed inset-0 -z-10 pointer-events-none"
-          options={{
-            fullScreen: false,
-            background: { color: { value: "transparent" } },
-            fpsLimit: 60,
-            particles: {
-              number: { value: 30, density: { enable: true } },
-              color: { value: ["#fff", "#e52d27", "#1e90ff"] },
-              shape: { type: "circle" },
-              opacity: { value: 0.3 },
-              size: { value: 3 },
-              move: { enable: true, speed: 1, direction: "none", outModes: { default: "out" } },
-              links: { enable: true, color: "#fff", opacity: 0.1, distance: 120, width: 1 },
-            },
-            detectRetina: true,
-          }}
-        />
-      )}
-      <style jsx global>{`
-        @keyframes gradient-move {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-gradient-move {
-          background-size: 400% 400%;
-          animation: gradient-move 18s ease-in-out infinite;
-        }
-      `}</style>
-      {/* ANIMACJA KARETKI + DYM */}
-      {showAmbulance && (
-        <div
-          ref={ambulanceRef}
-          className="pointer-events-none fixed z-0"
-          style={{ top: '32vh', width: 240 }}
-        >
-          <div className="mb-4 ml-16 flex justify-center">
-            <div className="bg-white text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg border-2 border-blue-300 text-lg animate-bounce">Pędzimy uratować Twój sprzęt!</div>
-          </div>
-          <svg width="240" height="90" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Pendrive tył */}
-            <rect x="135" y="38" width="18" height="10" rx="3" fill="#e52d27" stroke="#0a2540" strokeWidth="2"/>
-            <rect x="150" y="41" width="3" height="4" fill="#fff" stroke="#0a2540" strokeWidth="1"/>
-            {/* Karetka */}
-            <rect x="20" y="20" width="90" height="30" rx="8" fill="#fff" stroke="#0a2540" strokeWidth="3"/>
-            <rect x="110" y="30" width="30" height="20" rx="5" fill="#e52d27" stroke="#0a2540" strokeWidth="3"/>
-            <rect x="35" y="10" width="30" height="20" rx="5" fill="#e52d27" stroke="#0a2540" strokeWidth="3"/>
-            {/* Krzyż na dachu */}
-            <rect x="48" y="13" width="4" height="14" fill="#fff"/>
-            <rect x="43" y="18" width="14" height="4" fill="#fff"/>
-            {/* Światła */}
-            <rect x="70" y="5" width="10" height="10" fill="#fff" stroke="#e52d27" strokeWidth="2"/>
-            <rect x="74" y="7" width="2" height="6" fill="#e52d27"/>
-            <rect x="72" y="11" width="6" height="2" fill="#e52d27"/>
-            {/* Koła */}
-            <circle cx="40" cy="50" r="8" fill="#0a2540" stroke="#fff" strokeWidth="3"/>
-            <circle cx="120" cy="50" r="8" fill="#0a2540" stroke="#fff" strokeWidth="3"/>
-            {/* Okna */}
-            <rect x="60" y="25" width="15" height="5" fill="#0a2540"/>
-            <rect x="80" y="25" width="15" height="5" fill="#0a2540"/>
-            <rect x="60" y="35" width="35" height="5" fill="#0a2540"/>
-            {/* Syrena */}
-            <rect x="100" y="15" width="8" height="8" rx="2" fill="#0af" stroke="#0a2540" strokeWidth="1"/>
-            {/* Reflektory */}
-            <circle cx="20" cy="35" r="4" fill="#ff0" stroke="#0a2540" strokeWidth="1"/>
-            <circle cx="20" cy="45" r="4" fill="#ff0" stroke="#0a2540" strokeWidth="1"/>
-          </svg>
-        </div>
-      )}
+      {/* GŁÓWNA TREŚĆ STRONY */}
       {/* LOGO */}
       <div className="w-full flex justify-center items-center pt-8 pb-4">
         <div className="bg-white/70 backdrop-blur-lg rounded-2xl shadow-2xl px-6 py-3 flex items-center justify-center border-2 border-white/40" style={{maxWidth:'420px'}}>
@@ -429,6 +365,80 @@ export default function Home() {
         <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5.75C3 4.784 3.784 4 4.75 4h2.5A1.75 1.75 0 0 1 9 5.75v2.5A1.75 1.75 0 0 1 7.25 10H6.5a11.5 11.5 0 0 0 11 11v-.75A1.75 1.75 0 0 1 19.25 18h2.5A1.75 1.75 0 0 1 23 19.75v2.5A1.75 1.75 0 0 1 21.25 24h-2.5A1.75 1.75 0 0 1 17 22.25v-2.5A1.75 1.75 0 0 1 18.75 18h.75a11.5 11.5 0 0 0-11-11v.75A1.75 1.75 0 0 1 4.75 6H2.25A1.75 1.75 0 0 1 .5 4.25v-2.5A1.75 1.75 0 0 1 2.25 0h2.5A1.75 1.75 0 0 1 6.5 1.75v2.5A1.75 1.75 0 0 1 4.75 6H4a11.5 11.5 0 0 0 11 11v-.75A1.75 1.75 0 0 1 16.25 16h-2.5A1.75 1.75 0 0 1 12 14.25v-2.5A1.75 1.75 0 0 1 13.75 10h.75a11.5 11.5 0 0 0-11-11v.75A1.75 1.75 0 0 1 2.25 2H.5A1.75 1.75 0 0 1-1.25.25v-2.5A1.75 1.75 0 0 1 .5-2h2.5A1.75 1.75 0 0 1 4.75 0v2.5A1.75 1.75 0 0 1 3 4.25v1.5z"/></svg>
         Zadzwoń
       </button>
+
+      {/* ANIMACJE NA KOŃCU DOMU */}
+      <div className="fixed inset-0 -z-10 animate-gradient-move pointer-events-none" style={{background: 'linear-gradient(135deg, #0a2540, #e52d27, #1e90ff, #e52d27, #0a2540)', minHeight: '100vh'}} />
+      {showParticles && (
+        <Particles
+          id="tsparticles"
+          className="fixed inset-0 -z-10 pointer-events-none"
+          options={{
+            fullScreen: false,
+            background: { color: { value: "transparent" } },
+            fpsLimit: 60,
+            particles: {
+              number: { value: (typeof window !== 'undefined' && isMobile()) ? 10 : 30, density: { enable: true } },
+              color: { value: ["#fff", "#e52d27", "#1e90ff"] },
+              shape: { type: "circle" },
+              opacity: { value: 0.3 },
+              size: { value: 3 },
+              move: { enable: true, speed: 1, direction: "none", outModes: { default: "out" } },
+              links: { enable: true, color: "#fff", opacity: 0.1, distance: 120, width: 1 },
+            },
+            detectRetina: true,
+          }}
+        />
+      )}
+      <style jsx global>{`
+        @keyframes gradient-move {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .animate-gradient-move {
+          background-size: 400% 400%;
+          animation: gradient-move 18s ease-in-out infinite;
+        }
+      `}</style>
+      {showAmbulance && (
+        <div
+          ref={ambulanceRef}
+          className="pointer-events-none fixed z-0"
+          style={{ top: '32vh', width: 240 }}
+        >
+          <div className="mb-4 ml-16 flex justify-center">
+            <div className="bg-white text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg border-2 border-blue-300 text-lg animate-bounce">Pędzimy uratować Twój sprzęt!</div>
+          </div>
+          <svg width="240" height="90" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Pendrive tył */}
+            <rect x="135" y="38" width="18" height="10" rx="3" fill="#e52d27" stroke="#0a2540" strokeWidth="2"/>
+            <rect x="150" y="41" width="3" height="4" fill="#fff" stroke="#0a2540" strokeWidth="1"/>
+            {/* Karetka */}
+            <rect x="20" y="20" width="90" height="30" rx="8" fill="#fff" stroke="#0a2540" strokeWidth="3"/>
+            <rect x="110" y="30" width="30" height="20" rx="5" fill="#e52d27" stroke="#0a2540" strokeWidth="3"/>
+            <rect x="35" y="10" width="30" height="20" rx="5" fill="#e52d27" stroke="#0a2540" strokeWidth="3"/>
+            {/* Krzyż na dachu */}
+            <rect x="48" y="13" width="4" height="14" fill="#fff"/>
+            <rect x="43" y="18" width="14" height="4" fill="#fff"/>
+            {/* Światła */}
+            <rect x="70" y="5" width="10" height="10" fill="#fff" stroke="#e52d27" strokeWidth="2"/>
+            <rect x="74" y="7" width="2" height="6" fill="#e52d27"/>
+            <rect x="72" y="11" width="6" height="2" fill="#e52d27"/>
+            {/* Koła */}
+            <circle cx="40" cy="50" r="8" fill="#0a2540" stroke="#fff" strokeWidth="3"/>
+            <circle cx="120" cy="50" r="8" fill="#0a2540" stroke="#fff" strokeWidth="3"/>
+            {/* Okna */}
+            <rect x="60" y="25" width="15" height="5" fill="#0a2540"/>
+            <rect x="80" y="25" width="15" height="5" fill="#0a2540"/>
+            <rect x="60" y="35" width="35" height="5" fill="#0a2540"/>
+            {/* Syrena */}
+            <rect x="100" y="15" width="8" height="8" rx="2" fill="#0af" stroke="#0a2540" strokeWidth="1"/>
+            {/* Reflektory */}
+            <circle cx="20" cy="35" r="4" fill="#ff0" stroke="#0a2540" strokeWidth="1"/>
+            <circle cx="20" cy="45" r="4" fill="#ff0" stroke="#0a2540" strokeWidth="1"/>
+          </svg>
+        </div>
+      )}
     </div>
   );
 }
