@@ -120,36 +120,6 @@ export default function Home() {
     <div className="relative flex flex-col items-center text-gray-900 overflow-x-hidden" style={{position: 'relative'}}>
       {/* ANIMOWANE TŁO: tsParticles + animowany gradient renderowane od razu */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 animate-gradient-move" style={{background: 'linear-gradient(135deg, #0a2540, #e52d27, #1e90ff, #e52d27, #0a2540)'}} />
-      <Particles
-        id="tsparticles"
-        className="fixed top-0 left-0 w-full h-full -z-10"
-        options={{
-          fullScreen: false,
-          background: { color: { value: "transparent" } },
-          fpsLimit: 60,
-          particles: {
-            number: { value: typeof window !== 'undefined' && window.innerWidth < 640 ? 12 : 30, density: { enable: true } },
-            color: { value: ["#fff", "#e52d27", "#1e90ff"] },
-            shape: { type: "circle" },
-            opacity: { value: 0.3 },
-            size: { value: 3 },
-            move: { enable: true, speed: 1, direction: "none", outModes: { default: "out" } },
-            links: { enable: true, color: "#fff", opacity: 0.1, distance: 120, width: 1 },
-          },
-          detectRetina: true,
-        }}
-      />
-      <style jsx global>{`
-        @keyframes gradient-move {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-gradient-move {
-          background-size: 400% 400%;
-          animation: gradient-move 18s ease-in-out infinite;
-        }
-      `}</style>
       {/* Animacja karetki tylko po mount */}
       {isMounted && (
         <div
