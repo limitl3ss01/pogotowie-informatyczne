@@ -115,7 +115,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-between text-gray-900 overflow-x-hidden" style={{position: 'relative', minHeight: '100vh', overflowX: 'hidden'}}>
+    <div className="relative min-h-screen flex flex-col items-center text-gray-900 overflow-x-hidden" style={{position: 'relative', minHeight: '100vh', overflowX: 'hidden'}}>
       {/* ANIMOWANE TŁO: tsParticles + animowany gradient */}
       <div className="fixed inset-0 -z-10 animate-gradient-move pointer-events-none" style={{background: 'linear-gradient(135deg, #0a2540, #e52d27, #1e90ff, #e52d27, #0a2540)', minHeight: '100vh'}} />
       <Particles
