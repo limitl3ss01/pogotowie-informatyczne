@@ -802,7 +802,7 @@ export default function Home() {
             },
             {
               q: "Czy diagnoza usterki jest płatna?",
-              a: "Diagnoza usterki na miejscu jest bezpłatna, płacisz tylko za faktyczną naprawę lub usługę."
+              a: "Diagnoza usterki na miejscu bywa płatna, jeśli odbywa się z dojazdem do klienta. Szczegóły ustalamy indywidualnie przy zgłoszeniu."
             },
             {
               q: "Czy naprawiacie sprzęt na miejscu, czy zabieracie do serwisu?",
@@ -814,11 +814,35 @@ export default function Home() {
             },
             {
               q: "Jakie formy płatności akceptujecie?",
-              a: "Akceptujemy płatność gotówką, kartą oraz przelewem. Wystawiamy faktury VAT."
+              a: "Akceptujemy płatność gotówką lub przelewem. Wystawiamy faktury VAT."
             },
             {
               q: "Czy odzyskujecie dane z uszkodzonych dysków?",
               a: "Tak, mamy doświadczenie w odzyskiwaniu danych z dysków HDD, SSD, pendrive'ów i kart pamięci."
+            },
+            {
+              q: "Czy mogę liczyć na pomoc zdalną, bez wizyty w domu?",
+              a: "Tak, oferujemy również zdalną pomoc IT – wystarczy dostęp do internetu i telefoniczny kontakt z naszym specjalistą."
+            },
+            {
+              q: "Czy moje dane są bezpieczne podczas naprawy?",
+              a: "Dbamy o pełną poufność i bezpieczeństwo danych klientów. Na życzenie wykonujemy kopię zapasową przed naprawą."
+            },
+            {
+              q: "Jak długo trwa naprawa komputera lub laptopa?",
+              a: "Większość napraw wykonujemy w ciągu kilku godzin. W przypadku poważniejszych usterek czas naprawy ustalamy indywidualnie."
+            },
+            {
+              q: "Czy udzielacie gwarancji na wykonane usługi?",
+              a: "Tak, na większość usług udzielamy gwarancji. Szczegóły gwarancji omawiamy przy realizacji zlecenia."
+            },
+            {
+              q: "Czy naprawiacie sprzęt firmowy (np. serwery, drukarki sieciowe)?",
+              a: "Tak, obsługujemy również firmy i naprawiamy sprzęt biurowy, serwery, drukarki, routery i inne urządzenia."
+            },
+            {
+              q: "Czy mogę zamówić nowy sprzęt lub oprogramowanie przez Waszą firmę?",
+              a: "Tak, doradzamy i pośredniczymy w zakupie sprzętu oraz oprogramowania – pomagamy dobrać najlepsze rozwiązania do potrzeb klienta."
             },
           ].map((item, idx) => (
             <motion.details
