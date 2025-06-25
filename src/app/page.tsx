@@ -737,7 +737,7 @@ export default function Home() {
                 <div className="flex-1 flex flex-col items-start justify-center text-left">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="font-semibold text-lg text-gray-900">
-                      {op.author.split(' ')[0]} {op.author.split(' ')[1][0]}.
+                      {op.author.split(' ')[0]}{op.author.split(' ')[1] ? ` ${op.author.split(' ')[1][0]}.` : ''}
                     </span>
                     {/* Ikona Google */}
                     <svg className="w-6 h-6 ml-1" viewBox="0 0 48 48"><g><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 6 .9 8.3 2.7l6.2-6.2C34.6 4.5 29.6 2.5 24 2.5 12.7 2.5 3.5 11.7 3.5 23S12.7 43.5 24 43.5c10.5 0 20-7.7 20-20 0-1.3-.1-2.7-.3-3.5z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 17.1 19.2 14 24 14c3.1 0 6 .9 8.3 2.7l6.2-6.2C34.6 4.5 29.6 2.5 24 2.5c-7.2 0-13 5.8-13 13 0 2.1.5 4.1 1.3 5.7z"/><path fill="#FBBC05" d="M24 43.5c5.7 0 10.5-1.9 14.3-5.1l-6.6-5.4c-2.1 1.4-4.8 2.2-7.7 2.2-6.1 0-11.3-4.1-13.1-9.6l-7 5.4C7.7 39.2 15.2 43.5 24 43.5z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-1.1 3.1-4.2 5.5-7.7 5.5-4.7 0-8.5-3.8-8.5-8.5s3.8-8.5 8.5-8.5c2.1 0 4 .7 5.5 2.1l6.2-6.2C34.6 4.5 29.6 2.5 24 2.5c-7.2 0-13 5.8-13 13s5.8 13 13 13c6.1 0 11.2-4.1 12.7-9.5z"/></g></svg>
