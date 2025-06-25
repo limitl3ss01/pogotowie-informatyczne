@@ -154,46 +154,44 @@ export default function Home() {
           animation: gradient-move 18s ease-in-out infinite;
         }
       `}</style>
-      {/* Animacja karetki tylko po mount */}
-      {isMounted && (
-        <div
-          ref={ambulanceRef}
-          className="pointer-events-none fixed z-0"
-          style={{ top: '32vh', width: 240 }}
-        >
-          <div className="mb-4 ml-16 flex justify-center">
-            <div className="bg-white text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg border-2 border-blue-300 text-lg animate-bounce">Pędzimy uratować Twój sprzęt!</div>
-          </div>
-          <svg width="240" height="90" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Pendrive tył */}
-            <rect x="135" y="38" width="18" height="10" rx="3" fill="#e52d27" stroke="#0a2540" strokeWidth="2"/>
-            <rect x="150" y="41" width="3" height="4" fill="#fff" stroke="#0a2540" strokeWidth="1"/>
-            {/* Karetka */}
-            <rect x="20" y="20" width="90" height="30" rx="8" fill="#fff" stroke="#0a2540" strokeWidth="3"/>
-            <rect x="110" y="30" width="30" height="20" rx="5" fill="#e52d27" stroke="#0a2540" strokeWidth="3"/>
-            <rect x="35" y="10" width="30" height="20" rx="5" fill="#e52d27" stroke="#0a2540" strokeWidth="3"/>
-            {/* Krzyż na dachu */}
-            <rect x="48" y="13" width="4" height="14" fill="#fff"/>
-            <rect x="43" y="18" width="14" height="4" fill="#fff"/>
-            {/* Światła */}
-            <rect x="70" y="5" width="10" height="10" fill="#fff" stroke="#e52d27" strokeWidth="2"/>
-            <rect x="74" y="7" width="2" height="6" fill="#e52d27"/>
-            <rect x="72" y="11" width="6" height="2" fill="#e52d27"/>
-            {/* Koła */}
-            <circle cx="40" cy="50" r="8" fill="#0a2540" stroke="#fff" strokeWidth="3"/>
-            <circle cx="120" cy="50" r="8" fill="#0a2540" stroke="#fff" strokeWidth="3"/>
-            {/* Okna */}
-            <rect x="60" y="25" width="15" height="5" fill="#0a2540"/>
-            <rect x="80" y="25" width="15" height="5" fill="#0a2540"/>
-            <rect x="60" y="35" width="35" height="5" fill="#0a2540"/>
-            {/* Syrena */}
-            <rect x="100" y="15" width="8" height="8" rx="2" fill="#0af" stroke="#0a2540" strokeWidth="1"/>
-            {/* Reflektory */}
-            <circle cx="20" cy="35" r="4" fill="#ff0" stroke="#0a2540" strokeWidth="1"/>
-            <circle cx="20" cy="45" r="4" fill="#ff0" stroke="#0a2540" strokeWidth="1"/>
-          </svg>
+      {/* Animacja karetki w tle - zawsze widoczna */}
+      <div
+        ref={ambulanceRef}
+        className="pointer-events-none fixed z-0"
+        style={{ top: '32vh', width: 240 }}
+      >
+        <div className="mb-4 ml-16 flex justify-center">
+          <div className="bg-white text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg border-2 border-blue-300 text-lg animate-bounce">Pędzimy uratować Twój sprzęt!</div>
         </div>
-      )}
+        <svg width="240" height="90" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Pendrive tył */}
+          <rect x="135" y="38" width="18" height="10" rx="3" fill="#e52d27" stroke="#0a2540" strokeWidth="2"/>
+          <rect x="150" y="41" width="3" height="4" fill="#fff" stroke="#0a2540" strokeWidth="1"/>
+          {/* Karetka */}
+          <rect x="20" y="20" width="90" height="30" rx="8" fill="#fff" stroke="#0a2540" strokeWidth="3"/>
+          <rect x="110" y="30" width="30" height="20" rx="5" fill="#e52d27" stroke="#0a2540" strokeWidth="3"/>
+          <rect x="35" y="10" width="30" height="20" rx="5" fill="#e52d27" stroke="#0a2540" strokeWidth="3"/>
+          {/* Krzyż na dachu */}
+          <rect x="48" y="13" width="4" height="14" fill="#fff"/>
+          <rect x="43" y="18" width="14" height="4" fill="#fff"/>
+          {/* Światła */}
+          <rect x="70" y="5" width="10" height="10" fill="#fff" stroke="#e52d27" strokeWidth="2"/>
+          <rect x="74" y="7" width="2" height="6" fill="#e52d27"/>
+          <rect x="72" y="11" width="6" height="2" fill="#e52d27"/>
+          {/* Koła */}
+          <circle cx="40" cy="50" r="8" fill="#0a2540" stroke="#fff" strokeWidth="3"/>
+          <circle cx="120" cy="50" r="8" fill="#0a2540" stroke="#fff" strokeWidth="3"/>
+          {/* Okna */}
+          <rect x="60" y="25" width="15" height="5" fill="#0a2540"/>
+          <rect x="80" y="25" width="15" height="5" fill="#0a2540"/>
+          <rect x="60" y="35" width="35" height="5" fill="#0a2540"/>
+          {/* Syrena */}
+          <rect x="100" y="15" width="8" height="8" rx="2" fill="#0af" stroke="#0a2540" strokeWidth="1"/>
+          {/* Reflektory */}
+          <circle cx="20" cy="35" r="4" fill="#ff0" stroke="#0a2540" strokeWidth="1"/>
+          <circle cx="20" cy="45" r="4" fill="#ff0" stroke="#0a2540" strokeWidth="1"/>
+        </svg>
+      </div>
       {/* LOGO */}
       <div className="w-full flex justify-center items-center pt-8 pb-4">
         <div className="bg-white/70 backdrop-blur-lg rounded-2xl shadow-2xl px-6 py-3 flex items-center justify-center border-2 border-white/40" style={{maxWidth:'420px'}}>
