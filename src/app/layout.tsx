@@ -55,10 +55,38 @@ export default function RootLayout({
         <meta name="twitter:title" content="Pogotowie informatyczne 24/7 – szybka pomoc IT z dojazdem | Cała Polska" />
         <meta name="twitter:description" content="Mobilne pogotowie informatyczne 24/7. Szybka naprawa komputerów, odzyskiwanie danych, instalacja systemów, konfiguracja internetu. Dojazd do klienta na terenie całej Polski." />
         <meta name="twitter:image" content="https://pogotowie-informatyczne.com/og-image.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Pogotowie informatyczne 24/7",
+              image: "https://pogotowie-informatyczne.com/og-image.png",
+              "@id": "https://pogotowie-informatyczne.com/#firma",
+              url: "https://pogotowie-informatyczne.com/",
+              telephone: "573021012",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "PL",
+              },
+              description:
+                "Mobilne pogotowie informatyczne 24/7. Szybka naprawa komputerów, odzyskiwanie danych, instalacja systemów, konfiguracja internetu. Dojazd do klienta na terenie całego województwa kujawsko-pomorskiego i okolic.",
+              areaServed: "PL",
+              openingHours: "Mo-Su 00:00-23:59",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "573021012",
+                contactType: "customer service",
+                areaServed: "PL",
+                availableLanguage: ["pl", "en"],
+              },
+              email: "wlasciciel@pogotowie-informatyczne.com",
+            }),
+          }}
+        />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
         {/* Stopka z linkami do regulaminu i polityki prywatności */}
         <footer className="w-full mt-12 flex flex-col items-center justify-center py-6 px-4 bg-gradient-to-t from-blue-100/60 via-white/60 to-red-100/60 backdrop-blur-lg border-t border-white/30">
