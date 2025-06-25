@@ -505,15 +505,88 @@ export default function Home() {
             className="rounded-2xl shadow-xl bg-white/40 backdrop-blur-lg p-6 border-2 border-white/30"
           >
             {[
-              { author: "Anna K.", text: "Bardzo szybka i profesjonalna pomoc! Laptop uratowany w godzinę. Polecam każdemu!" },
-              { author: "Marek P.", text: "Świetny kontakt, ekspresowa naprawa komputera, przystępna cena. Dziękuję!" },
-              { author: "Ewa Z.", text: "Odzyskali mi dane z uszkodzonego dysku, myślałam że to niemożliwe. Super ekipa!" },
-              { author: "Tomasz L.", text: "Zawsze można liczyć na pomoc, nawet w nocy. Fachowo i z uśmiechem." },
-            ].map((op: { author: string, text: string }, i: number) => (
-              <div key={i} className="flex flex-col items-center justify-center min-h-[180px]">
-                <p className="text-xl text-blue-900 font-semibold mb-4">&quot;{op.text}&quot;</p>
-                <span className="text-lg text-red-700 font-bold">{op.author}</span>
-              </div>
+              {
+                author: "Anna Kowalska",
+                avatar: "A",
+                color: "bg-blue-500",
+                date: "2024-05-10",
+                rating: 5,
+                text: "Bardzo szybka i profesjonalna pomoc! Laptop uratowany w godzinę. Polecam każdemu!"
+              },
+              {
+                author: "Marek Piotrowski",
+                avatar: "M",
+                color: "bg-red-500",
+                date: "2024-04-22",
+                rating: 5,
+                text: "Świetny kontakt, ekspresowa naprawa komputera, przystępna cena. Dziękuję!"
+              },
+              {
+                author: "Ewa Zielińska",
+                avatar: "E",
+                color: "bg-green-500",
+                date: "2024-03-15",
+                rating: 5,
+                text: "Odzyskali mi dane z uszkodzonego dysku, myślałam że to niemożliwe. Super ekipa!"
+              },
+              {
+                author: "Tomasz Lewandowski",
+                avatar: "T",
+                color: "bg-yellow-500",
+                date: "2024-02-28",
+                rating: 5,
+                text: "Zawsze można liczyć na pomoc, nawet w nocy. Fachowo i z uśmiechem."
+              },
+            ].map((op, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95, y: 30 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                whileHover={{ scale: 1.03, boxShadow: '0 8px 32px 0 rgba(10,37,64,0.18)' }}
+                className="flex flex-col sm:flex-row items-center gap-6 justify-center min-h-[200px] bg-white rounded-2xl shadow-2xl border border-gray-200 p-6 mx-2 my-4 relative overflow-hidden review-card"
+                style={{ boxShadow: '0 8px 32px 0 rgba(10,37,64,0.10)' }}
+              >
+                {/* Avatar */}
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-lg ring-4 ring-white/60 ${op.color} select-none`}>
+                  {op.avatar}
+                </div>
+                {/* Treść */}
+                <div className="flex-1 flex flex-col items-start justify-center text-left">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-semibold text-lg text-gray-900">{op.author.split(' ')[0]} {op.author.split(' ')[1][0]}.</span>
+                    {/* Ikona Google */}
+                    <svg className="w-6 h-6 ml-1" viewBox="0 0 48 48"><g><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 6 .9 8.3 2.7l6.2-6.2C34.6 4.5 29.6 2.5 24 2.5 12.7 2.5 3.5 11.7 3.5 23S12.7 43.5 24 43.5c10.5 0 20-7.7 20-20 0-1.3-.1-2.7-.3-3.5z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 17.1 19.2 14 24 14c3.1 0 6 .9 8.3 2.7l6.2-6.2C34.6 4.5 29.6 2.5 24 2.5c-7.2 0-13 5.8-13 13 0 2.1.5 4.1 1.3 5.7z"/><path fill="#FBBC05" d="M24 43.5c5.7 0 10.5-1.9 14.3-5.1l-6.6-5.4c-2.1 1.4-4.8 2.2-7.7 2.2-6.1 0-11.3-4.1-13.1-9.6l-7 5.4C7.7 39.2 15.2 43.5 24 43.5z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-1.1 3.1-4.2 5.5-7.7 5.5-4.7 0-8.5-3.8-8.5-8.5s3.8-8.5 8.5-8.5c2.1 0 4 .7 5.5 2.1l6.2-6.2C34.6 4.5 29.6 2.5 24 2.5c-7.2 0-13 5.8-13 13s5.8 13 13 13c6.1 0 11.2-4.1 12.7-9.5z"/></g></svg>
+                  </div>
+                  {/* Gwiazdki */}
+                  <div className="flex items-center mb-2">
+                    {[...Array(5)].map((_, idx) => (
+                      <motion.svg
+                        key={idx}
+                        className="w-6 h-6"
+                        viewBox="0 0 24 24"
+                        fill={idx < op.rating ? '#FFD600' : '#E0E0E0'}
+                        initial={{ scale: 0.7, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: 0.1 + idx * 0.08, duration: 0.3, type: 'spring' }}
+                      >
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                      </motion.svg>
+                    ))}
+                  </div>
+                  {/* Tekst opinii */}
+                  <motion.p
+                    className="text-lg text-gray-800 font-medium mb-2"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.25, duration: 0.4 }}
+                  >
+                    "{op.text}"
+                  </motion.p>
+                  {/* Data */}
+                  <span className="text-sm text-gray-500 mt-1">{new Date(op.date).toLocaleDateString('pl-PL', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                </div>
+              </motion.div>
             ))}
           </Slider>
         </div>
