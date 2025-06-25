@@ -172,11 +172,36 @@ export default function Home() {
           <ellipse cx="70" cy="45" rx="6" ry="6" fill="#fff" stroke="#0a2540" strokeWidth="2"/>
           <ellipse cx="70" cy="45" rx="2.5" ry="2.5" fill="#e52d27"/>
           {/* Syrena na górze */}
-          <rect x="150" y="10" width="20" height="16" rx="6" fill="#0af" stroke="#0a2540" strokeWidth="2"/>
-          {/* Dynamiczne światła sygnału */}
           <g>
-            <motion.rect initial={{opacity:0, y:2}} animate={{opacity:[0,1,0], y:[2,0,2]}} transition={{repeat:Infinity, duration:1.2, delay:0.2}} x="158" y="0" width="4" height="12" rx="2" fill="#0af"/>
-            <motion.rect initial={{opacity:0, y:2}} animate={{opacity:[0,1,0], y:[2,0,2]}} transition={{repeat:Infinity, duration:1.2, delay:0.6}} x="162" y="0" width="4" height="12" rx="2" fill="#0af"/>
+            {/* Podstawa lampy */}
+            <rect x="150" y="18" width="20" height="8" rx="4" fill="#0a2540" />
+            {/* Kopuła lampy: półokrąg */}
+            <ellipse cx="160" cy="18" rx="10" ry="8" fill="#0af" />
+            <ellipse cx="170" cy="18" rx="10" ry="8" fill="#e52d27" />
+            {/* Okrągła lampa (połowa niebieska, połowa czerwona) */}
+            <ellipse cx="160" cy="18" rx="10" ry="8" fill="url(#blueRedGradient)" />
+            <defs>
+              <linearGradient id="blueRedGradient" x1="150" y1="18" x2="170" y2="18" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#0af" />
+                <stop offset="50%" stopColor="#0af" />
+                <stop offset="50%" stopColor="#e52d27" />
+                <stop offset="100%" stopColor="#e52d27" />
+              </linearGradient>
+            </defs>
+            {/* Obracający się, migający łuk nad lampą */}
+            <motion.ellipse
+              cx="160"
+              cy="10"
+              rx="12"
+              ry="4"
+              fill="none"
+              stroke="#0af"
+              strokeWidth="4"
+              initial={{ rotate: 0, opacity: 1 }}
+              animate={{ rotate: [0, 180, 360], opacity: [1, 0.3, 1], stroke: ["#0af", "#e52d27", "#0af"] }}
+              transition={{ repeat: Infinity, duration: 1.2, ease: "linear" }}
+              style={{ originX: "160px", originY: "18px" }}
+            />
           </g>
           {/* Cień pod pendrivem */}
           <ellipse cx="150" cy="75" rx="80" ry="10" fill="#0a2540" opacity="0.18"/>
