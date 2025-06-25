@@ -148,63 +148,142 @@ export default function Home() {
           animation: gradient-move 18s ease-in-out infinite;
         }
       `}</style>
-      {/* ANIMACJA PENDRIVE NA SYGNALE + DYM */}
+      {/* ANIMACJA PENDRIVE NA SYGNALE + DYM (wersja premium, bardzo szczegółowa) */}
       <div
         ref={ambulanceRef}
         className="pointer-events-none fixed z-0"
-        style={{ top: '32vh', width: 320 }}
+        style={{ top: '30vh', width: 400 }}
       >
-        <div className="mb-4 ml-24 flex justify-center">
+        <div className="mb-4 ml-32 flex justify-center">
           <div className="bg-white text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg border-2 border-blue-300 text-lg animate-bounce">Pędzimy uratować Twój sprzęt!</div>
         </div>
-        {/* Klasyczny pendrive na sygnale */}
-        <svg width="320" height="90" viewBox="0 0 320 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Korpus pendrive */}
-          <rect x="60" y="25" width="180" height="40" rx="12" fill="#e52d27" stroke="#0a2540" strokeWidth="5"/>
-          {/* Metalowa końcówka */}
-          <rect x="240" y="32" width="40" height="26" rx="5" fill="#f4f4f4" stroke="#0a2540" strokeWidth="3"/>
-          {/* Linia oddzielająca końcówkę */}
-          <rect x="238" y="30" width="4" height="30" rx="2" fill="#bbb"/>
+        <svg width="400" height="120" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            {/* Gradienty */}
+            <linearGradient id="pendriveRed" x1="80" y1="60" x2="320" y2="60" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#e52d27" />
+              <stop offset="0.5" stopColor="#ff5f5f" />
+              <stop offset="1" stopColor="#b71c1c" />
+            </linearGradient>
+            <linearGradient id="metal" x1="320" y1="60" x2="370" y2="60" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#e0e0e0" />
+              <stop offset="0.5" stopColor="#b0b0b0" />
+              <stop offset="1" stopColor="#f4f4f4" />
+            </linearGradient>
+            <radialGradient id="shine" cx="0.5" cy="0.2" r="0.7">
+              <stop offset="0%" stopColor="#fff" stopOpacity="0.7" />
+              <stop offset="100%" stopColor="#fff" stopOpacity="0" />
+            </radialGradient>
+            <linearGradient id="blueRedSplit" x1="0" y1="0" x2="40" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#0af" />
+              <stop offset="50%" stopColor="#0af" />
+              <stop offset="50%" stopColor="#e52d27" />
+              <stop offset="100%" stopColor="#e52d27" />
+            </linearGradient>
+            <radialGradient id="glowBlue" cx="0.3" cy="0.5" r="0.7">
+              <stop offset="0%" stopColor="#0af" stopOpacity="0.7" />
+              <stop offset="100%" stopColor="#0af" stopOpacity="0" />
+            </radialGradient>
+            <radialGradient id="glowRed" cx="0.7" cy="0.5" r="0.7">
+              <stop offset="0%" stopColor="#e52d27" stopOpacity="0.7" />
+              <stop offset="100%" stopColor="#e52d27" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+          {/* Cień pod pendrivem */}
+          <ellipse cx="200" cy="110" rx="110" ry="14" fill="#0a2540" opacity="0.18"/>
+          {/* Korpus pendrive z gradientem i połyskiem */}
+          <rect x="80" y="40" width="240" height="40" rx="16" fill="url(#pendriveRed)" stroke="#a31515" strokeWidth="4"/>
+          <ellipse cx="200" cy="60" rx="110" ry="18" fill="url(#shine)" opacity="0.18"/>
+          {/* Logo błyskawicy */}
+          <polygon points="170,55 185,55 175,70 190,70 165,90 175,70 160,70" fill="#fff" opacity="0.7" stroke="#fff" strokeWidth="1"/>
+          {/* Dziurka na smycz z połyskiem */}
+          <ellipse cx="95" cy="60" rx="8" ry="8" fill="#fff" stroke="#0a2540" strokeWidth="2"/>
+          <ellipse cx="95" cy="60" rx="3" ry="3" fill="#e52d27"/>
+          <ellipse cx="95" cy="57" rx="4" ry="2" fill="#fff" opacity="0.5"/>
+          {/* Metalowa końcówka z gradientem, linią i nitami */}
+          <rect x="320" y="48" width="50" height="24" rx="6" fill="url(#metal)" stroke="#888" strokeWidth="3"/>
+          <rect x="318" y="46" width="4" height="28" rx="2" fill="#bbb"/>
+          {/* Nity */}
+          <circle cx="330" cy="54" r="2" fill="#888"/>
+          <circle cx="330" cy="74" r="2" fill="#888"/>
+          <circle cx="355" cy="54" r="2" fill="#bbb"/>
+          <circle cx="355" cy="74" r="2" fill="#bbb"/>
           {/* Styki USB */}
-          <rect x="250" y="38" width="6" height="12" rx="2" fill="#1e90ff"/>
-          <rect x="262" y="38" width="6" height="12" rx="2" fill="#1e90ff"/>
-          {/* Dziurka na smycz */}
-          <ellipse cx="70" cy="45" rx="6" ry="6" fill="#fff" stroke="#0a2540" strokeWidth="2"/>
-          <ellipse cx="70" cy="45" rx="2.5" ry="2.5" fill="#e52d27"/>
-          {/* Syrena na górze */}
+          <rect x="340" y="56" width="6" height="12" rx="2" fill="#1e90ff" stroke="#0a2540" strokeWidth="1"/>
+          <rect x="352" y="56" width="6" height="12" rx="2" fill="#ffd700" stroke="#0a2540" strokeWidth="1"/>
+          {/* Połysk na końcówce */}
+          <ellipse cx="345" cy="52" rx="10" ry="3" fill="#fff" opacity="0.3"/>
+          {/* SYGNAŁ POLICYJNY */}
           <g>
+            {/* Glow wokół lampy */}
+            <ellipse cx="200" cy="32" rx="32" ry="12" fill="url(#glowBlue)" opacity="0.5"/>
+            <ellipse cx="200" cy="32" rx="32" ry="12" fill="url(#glowRed)" opacity="0.5"/>
             {/* Podstawa lampy */}
-            <rect x="150" y="18" width="20" height="8" rx="4" fill="#0a2540" />
-            {/* Kopuła lampy: półokrąg */}
-            <ellipse cx="160" cy="18" rx="10" ry="8" fill="#0af" />
-            <ellipse cx="170" cy="18" rx="10" ry="8" fill="#e52d27" />
-            {/* Okrągła lampa (połowa niebieska, połowa czerwona) */}
-            <ellipse cx="160" cy="18" rx="10" ry="8" fill="url(#blueRedGradient)" />
-            <defs>
-              <linearGradient id="blueRedGradient" x1="150" y1="18" x2="170" y2="18" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#0af" />
-                <stop offset="50%" stopColor="#0af" />
-                <stop offset="50%" stopColor="#e52d27" />
-                <stop offset="100%" stopColor="#e52d27" />
-              </linearGradient>
-            </defs>
-            {/* Obracający się, migający łuk nad lampą */}
-            <motion.ellipse
-              cx="160"
-              cy="10"
-              rx="12"
-              ry="4"
+            <rect x="180" y="28" width="40" height="12" rx="6" fill="#222" stroke="#0a2540" strokeWidth="2"/>
+            {/* Kopuła lampy: pół na pół niebieska i czerwona, z połyskiem */}
+            <ellipse cx="200" cy="28" rx="20" ry="14" fill="url(#blueRedSplit)" stroke="#0a2540" strokeWidth="2"/>
+            <ellipse cx="200" cy="24" rx="16" ry="6" fill="#fff" opacity="0.18"/>
+            {/* Dynamiczne, obracające się łuki (niebieski i czerwony) */}
+            <motion.path
+              d="M200 10 a 22 22 0 0 1 22 22"
               fill="none"
               stroke="#0af"
+              strokeWidth="6"
+              strokeLinecap="round"
+              initial={{ rotate: 0, opacity: 0.8 }}
+              animate={{ rotate: [0, 360], opacity: [0.8, 0.2, 0.8] }}
+              transition={{ repeat: Infinity, duration: 1.2, ease: 'linear' }}
+              style={{ originX: '200px', originY: '28px' }}
+            />
+            <motion.path
+              d="M200 10 a 22 22 0 0 0 -22 22"
+              fill="none"
+              stroke="#e52d27"
+              strokeWidth="6"
+              strokeLinecap="round"
+              initial={{ rotate: 180, opacity: 0.8 }}
+              animate={{ rotate: [180, 540], opacity: [0.8, 0.2, 0.8] }}
+              transition={{ repeat: Infinity, duration: 1.2, ease: 'linear' }}
+              style={{ originX: '200px', originY: '28px' }}
+            />
+            {/* Promienie światła (błyski) */}
+            <motion.line
+              x1="200" y1="8" x2="200" y2="-16"
+              stroke="#0af"
               strokeWidth="4"
-              initial={{ rotate: 0, opacity: 1 }}
-              animate={{ rotate: [0, 180, 360], opacity: [1, 0.3, 1], stroke: ["#0af", "#e52d27", "#0af"] }}
-              transition={{ repeat: Infinity, duration: 1.2, ease: "linear" }}
-              style={{ originX: "160px", originY: "18px" }}
+              strokeLinecap="round"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{ repeat: Infinity, duration: 1.2, times: [0, 0.1, 0.3, 1], delay: 0 }}
+            />
+            <motion.line
+              x1="200" y1="8" x2="220" y2="-8"
+              stroke="#e52d27"
+              strokeWidth="4"
+              strokeLinecap="round"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{ repeat: Infinity, duration: 1.2, times: [0, 0.2, 0.4, 1], delay: 0.2 }}
+            />
+            <motion.line
+              x1="200" y1="8" x2="180" y2="-8"
+              stroke="#0af"
+              strokeWidth="4"
+              strokeLinecap="round"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{ repeat: Infinity, duration: 1.2, times: [0, 0.3, 0.5, 1], delay: 0.4 }}
+            />
+            <motion.line
+              x1="200" y1="8" x2="200" y2="-24"
+              stroke="#e52d27"
+              strokeWidth="4"
+              strokeLinecap="round"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{ repeat: Infinity, duration: 1.2, times: [0, 0.4, 0.6, 1], delay: 0.6 }}
             />
           </g>
-          {/* Cień pod pendrivem */}
-          <ellipse cx="150" cy="75" rx="80" ry="10" fill="#0a2540" opacity="0.18"/>
         </svg>
       </div>
       {/* LOGO */}
