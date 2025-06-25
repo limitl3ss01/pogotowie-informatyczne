@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   description: "Mobilne pogotowie informatyczne 24/7. Szybka naprawa komputerów, odzyskiwanie danych, instalacja systemów, konfiguracja internetu. Dojazd do klienta na terenie całej Polski.",
   icons: {
     icon: [
-      { rel: 'icon', url: '/favicon.ico' },
-      { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon-32x32.png' },
-      { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon-16x16.png' },
+      { rel: 'icon', url: '/faicon.ico' },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/faicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/faicon-16x16.png' },
       { rel: 'apple-touch-icon', sizes: '180x180', url: '/apple-touch-icon.png' },
       { rel: 'icon', type: 'image/png', sizes: '192x192', url: '/android-chrome-192x192.png' },
       { rel: 'icon', type: 'image/png', sizes: '512x512', url: '/android-chrome-512x512.png' },
@@ -36,9 +36,9 @@ export default function RootLayout({
     <html lang="pl">
       <head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/faicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/faicon-16x16.png" />
+        <link rel="icon" href="/faicon.ico" />
         <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
         <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
       </head>
