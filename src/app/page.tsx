@@ -68,32 +68,15 @@ export default function Home() {
   const ambulanceRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     let raf: number;
-    let pos = -400;
-    let phase: 'move' | 'plug' = 'move';
-    let plugProgress = 0;
+    let pos = -240;
     function animate() {
       if (ambulanceRef.current) {
-        if (phase === 'move') {
-          ambulanceRef.current.style.left = `${pos}px`;
-          ambulanceRef.current.style.top = '30vh';
-          pos += 2.2;
-          if (pos >= window.innerWidth - 480) {
-            phase = 'plug';
-            plugProgress = 0;
-          }
-        } else if (phase === 'plug') {
-          // Wsuń pendrive do portu (ok. 40px)
-          plugProgress += 1.2;
-          ambulanceRef.current.style.left = `${window.innerWidth - 480 + Math.min(plugProgress, 40)}px`;
-          if (plugProgress < 40) {
-            raf = requestAnimationFrame(animate);
-            return;
-          }
-        }
+        ambulanceRef.current.style.left = `${pos}px`;
+        ambulanceRef.current.style.top = '32vh';
       }
-      if (phase === 'move' || plugProgress < 40) {
-        raf = requestAnimationFrame(animate);
-      }
+      pos += 2.2;
+      if (pos > window.innerWidth) pos = -240;
+      raf = requestAnimationFrame(animate);
     }
     animate();
     return () => {
@@ -184,7 +167,8 @@ export default function Home() {
             </linearGradient>
             <linearGradient id="metal" x1="320" y1="60" x2="370" y2="60" gradientUnits="userSpaceOnUse">
               <stop stopColor="#e0e0e0" />
-              <stop offset="0.5" stopColor="#b0b0b0" />
+              <stop offset="0.3" stopColor="#b0b0b0" />
+              <stop offset="0.7" stopColor="#d0d0d0" />
               <stop offset="1" stopColor="#f4f4f4" />
             </linearGradient>
             <radialGradient id="shine" cx="0.5" cy="0.2" r="0.7">
@@ -205,22 +189,45 @@ export default function Home() {
               <stop offset="0%" stopColor="#e52d27" stopOpacity="0.7" />
               <stop offset="100%" stopColor="#e52d27" stopOpacity="0" />
             </radialGradient>
+            {/* Tekstura szczotkowanego aluminium */}
+            <pattern id="brushed" patternUnits="userSpaceOnUse" width="6" height="6">
+              <rect x="0" y="0" width="6" height="6" fill="#e0e0e0" />
+              <line x1="0" y1="0" x2="6" y2="6" stroke="#b0b0b0" strokeWidth="0.5" />
+              <line x1="6" y1="0" x2="0" y2="6" stroke="#d0d0d0" strokeWidth="0.5" />
+            </pattern>
+            {/* Gradient cienia pod pendrivem */}
+            <radialGradient id="shadow" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0%" stopColor="#0a2540" stopOpacity="0.18" />
+              <stop offset="100%" stopColor="#0a2540" stopOpacity="0" />
+            </radialGradient>
           </defs>
-          {/* Cień pod pendrivem */}
-          <ellipse cx="200" cy="110" rx="110" ry="14" fill="#0a2540" opacity="0.18"/>
-          {/* Korpus pendrive z gradientem i połyskiem */}
+          {/* Cień pod pendrivem z gradientem */}
+          <ellipse cx="200" cy="110" rx="110" ry="14" fill="url(#shadow)"/>
+          {/* Korpus pendrive z gradientem, połyskiem i przetłoczeniami */}
           <rect x="80" y="40" width="240" height="40" rx="16" fill="url(#pendriveRed)" stroke="#a31515" strokeWidth="4"/>
-          <ellipse cx="200" cy="60" rx="110" ry="18" fill="url(#shine)" opacity="0.18"/>
-          {/* Błyskawica na środku pendrive */}
-          <polygon points="200,52 215,62 205,62 220,78 190,66 205,66 190,52" fill="#fff" opacity="0.85" stroke="#fff" strokeWidth="1.5"/>
-          {/* Dziurka na smycz z połyskiem */}
+          {/* Przetłoczenia na korpusie */}
+          <rect x="100" y="48" width="200" height="4" rx="2" fill="#fff" opacity="0.12"/>
+          <rect x="100" y="88" width="200" height="2" rx="1" fill="#fff" opacity="0.10"/>
+          <rect x="120" y="60" width="160" height="2" rx="1" fill="#fff" opacity="0.08"/>
+          {/* Dodatkowy połysk na korpusie */}
+          <path d="M90,45 Q200,30 310,45 Q250,60 90,45" fill="#fff" opacity="0.10"/>
+          {/* Logo/napis na korpusie */}
+          <text x="200" y="80" textAnchor="middle" fontSize="18" fontWeight="bold" fill="#fff" opacity="0.25" style={{letterSpacing:'2px'}}>IT 24/7</text>
+          {/* Błyskawica na środku pendrive z cieniem */}
+          <filter id="shadowFilter" x="-10" y="-10" width="40" height="40">
+            <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#0a2540" floodOpacity="0.3"/>
+          </filter>
+          <polygon points="200,52 215,62 205,62 220,78 190,66 205,66 190,52" fill="#fff" opacity="0.85" stroke="#fff" strokeWidth="1.5" filter="url(#shadowFilter)"/>
+          {/* Dziurka na smycz z metalową ramką i połyskiem */}
           <ellipse cx="95" cy="60" rx="8" ry="8" fill="#fff" stroke="#0a2540" strokeWidth="2"/>
+          <ellipse cx="95" cy="60" rx="6" ry="6" fill="none" stroke="#b0b0b0" strokeWidth="1.5"/>
           <ellipse cx="95" cy="60" rx="3" ry="3" fill="#e52d27"/>
           <ellipse cx="95" cy="57" rx="4" ry="2" fill="#fff" opacity="0.5"/>
-          {/* Metalowa końcówka z gradientem, linią i nitami */}
+          {/* Metalowa końcówka z gradientem, teksturą, linią i nitami */}
           <rect x="320" y="48" width="50" height="24" rx="6" fill="url(#metal)" stroke="#888" strokeWidth="3"/>
+          <rect x="320" y="48" width="50" height="24" rx="6" fill="url(#brushed)" opacity="0.25"/>
           <rect x="318" y="46" width="4" height="28" rx="2" fill="#bbb"/>
-          {/* Nity */}
+          {/* Nity/śrubki */}
           <circle cx="330" cy="54" r="2" fill="#888"/>
           <circle cx="330" cy="74" r="2" fill="#888"/>
           <circle cx="355" cy="54" r="2" fill="#bbb"/>
@@ -230,6 +237,9 @@ export default function Home() {
           <rect x="352" y="56" width="6" height="12" rx="2" fill="#ffd700" stroke="#0a2540" strokeWidth="1"/>
           {/* Połysk na końcówce */}
           <ellipse cx="345" cy="52" rx="10" ry="3" fill="#fff" opacity="0.3"/>
+          {/* Nieregularne refleksy światła na korpusie */}
+          <path d="M120,60 Q180,50 240,60 Q220,70 120,60" fill="#fff" opacity="0.07"/>
+          <path d="M150,80 Q200,90 250,80 Q230,85 150,80" fill="#fff" opacity="0.05"/>
           {/* SYGNAŁ POLICYJNY – przesunięty na górę pendrive */}
           <g>
             {/* Glow wokół lampy */}
@@ -300,14 +310,6 @@ export default function Home() {
               animate={{ opacity: [0, 1, 0] }}
               transition={{ repeat: Infinity, duration: 1.2, times: [0, 0.4, 0.6, 1], delay: 0.6 }}
             />
-          </g>
-          {/* PORT USB (na samym końcu, zawsze widoczny) */}
-          <g>
-            <rect x="370" y="44" width="24" height="32" rx="6" fill="#222" stroke="#888" strokeWidth="3"/>
-            <rect x="374" y="52" width="16" height="16" rx="3" fill="#e0e0e0" stroke="#b0b0b0" strokeWidth="2"/>
-            {/* Detale portu */}
-            <rect x="378" y="56" width="4" height="8" rx="1" fill="#888"/>
-            <rect x="386" y="56" width="4" height="8" rx="1" fill="#888"/>
           </g>
         </svg>
       </div>
