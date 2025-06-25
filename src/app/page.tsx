@@ -507,7 +507,7 @@ export default function Home() {
             {[
               {
                 author: "Anna Kowalska",
-                nick: "anna.k",
+                nick: "techfan88",
                 avatar: "A",
                 avatarUrl: "https://randomuser.me/api/portraits/women/44.jpg",
                 color: "bg-blue-500",
@@ -517,7 +517,7 @@ export default function Home() {
               },
               {
                 author: "Marek Piotrowski",
-                nick: "marekP",
+                nick: "kompMaster",
                 avatar: "M",
                 avatarUrl: "https://randomuser.me/api/portraits/men/32.jpg",
                 color: "bg-red-500",
@@ -527,7 +527,7 @@ export default function Home() {
               },
               {
                 author: "Ewa Zielińska",
-                nick: "EwaZ",
+                nick: "agn3ska",
                 avatar: "E",
                 avatarUrl: "",
                 color: "bg-green-500",
@@ -537,7 +537,7 @@ export default function Home() {
               },
               {
                 author: "Tomasz Lewandowski",
-                nick: "tom_lew",
+                nick: "user_krzys",
                 avatar: "T",
                 avatarUrl: "https://randomuser.me/api/portraits/men/65.jpg",
                 color: "bg-yellow-500",
@@ -547,7 +547,7 @@ export default function Home() {
               },
               {
                 author: "Katarzyna Nowak",
-                nick: "kasiatek",
+                nick: "pawelx",
                 avatar: "K",
                 avatarUrl: "",
                 color: "bg-pink-500",
@@ -557,7 +557,7 @@ export default function Home() {
               },
               {
                 author: "Paweł Grabowski",
-                nick: "pawelG",
+                nick: "julia.pw",
                 avatar: "P",
                 avatarUrl: "https://randomuser.me/api/portraits/men/12.jpg",
                 color: "bg-indigo-500",
@@ -567,7 +567,7 @@ export default function Home() {
               },
               {
                 author: "Joanna Szymańska",
-                nick: "joasiaS",
+                nick: "bartekW",
                 avatar: "J",
                 avatarUrl: "https://randomuser.me/api/portraits/women/68.jpg",
                 color: "bg-teal-500",
@@ -577,7 +577,7 @@ export default function Home() {
               },
               {
                 author: "Grzegorz Wójcik",
-                nick: "grzesiekW",
+                nick: "zofiaQ",
                 avatar: "G",
                 avatarUrl: "",
                 color: "bg-orange-500",
@@ -587,7 +587,7 @@ export default function Home() {
               },
               {
                 author: "Monika Pawlak",
-                nick: "monikaP",
+                nick: "urbanN",
                 avatar: "M",
                 avatarUrl: "https://randomuser.me/api/portraits/women/12.jpg",
                 color: "bg-purple-500",
@@ -597,7 +597,7 @@ export default function Home() {
               },
               {
                 author: "Krzysztof Baran",
-                nick: "krisbaran",
+                nick: "sebastian_23",
                 avatar: "K",
                 avatarUrl: "",
                 color: "bg-blue-800",
@@ -607,7 +607,7 @@ export default function Home() {
               },
               {
                 author: "Natalia Urban",
-                nick: "nataliaU",
+                nick: "karolinkaXD",
                 avatar: "N",
                 avatarUrl: "https://randomuser.me/api/portraits/women/33.jpg",
                 color: "bg-pink-700",
@@ -617,7 +617,7 @@ export default function Home() {
               },
               {
                 author: "user1234",
-                nick: "user1234",
+                nick: "piotrmajster",
                 avatar: "U",
                 avatarUrl: "",
                 color: "bg-gray-400",
@@ -627,7 +627,7 @@ export default function Home() {
               },
               {
                 author: "Sebastian Krawczyk",
-                nick: "sebastianK",
+                nick: "nowyAndrzej",
                 avatar: "S",
                 avatarUrl: "https://randomuser.me/api/portraits/men/23.jpg",
                 color: "bg-blue-400",
@@ -637,7 +637,7 @@ export default function Home() {
               },
               {
                 author: "Agnieszka Lis",
-                nick: "agaLis",
+                nick: "ithelp24",
                 avatar: "A",
                 avatarUrl: "",
                 color: "bg-pink-400",
@@ -647,7 +647,7 @@ export default function Home() {
               },
               {
                 author: "Michał Nowicki",
-                nick: "michuN",
+                nick: "fix4you",
                 avatar: "M",
                 avatarUrl: "https://randomuser.me/api/portraits/men/77.jpg",
                 color: "bg-blue-700",
@@ -657,7 +657,7 @@ export default function Home() {
               },
               {
                 author: "Karolina Dąbrowska",
-                nick: "karolinkaD",
+                nick: "laptopQueen",
                 avatar: "K",
                 avatarUrl: "https://randomuser.me/api/portraits/women/21.jpg",
                 color: "bg-pink-600",
@@ -667,7 +667,7 @@ export default function Home() {
               },
               {
                 author: "Piotr Maj",
-                nick: "piotrmaj",
+                nick: "printHero",
                 avatar: "P",
                 avatarUrl: "",
                 color: "bg-green-700",
@@ -677,7 +677,7 @@ export default function Home() {
               },
               {
                 author: "Zofia Król",
-                nick: "zofkaK",
+                nick: "nightOwl",
                 avatar: "Z",
                 avatarUrl: "https://randomuser.me/api/portraits/women/19.jpg",
                 color: "bg-yellow-600",
@@ -687,7 +687,7 @@ export default function Home() {
               },
               {
                 author: "Bartek Wrona",
-                nick: "bartekw",
+                nick: "fastFixer",
                 avatar: "B",
                 avatarUrl: "",
                 color: "bg-orange-700",
@@ -697,7 +697,7 @@ export default function Home() {
               },
               {
                 author: "Julia Pawłowska",
-                nick: "juliaP",
+                nick: "happyClient",
                 avatar: "J",
                 avatarUrl: "https://randomuser.me/api/portraits/women/25.jpg",
                 color: "bg-purple-400",
@@ -707,7 +707,7 @@ export default function Home() {
               },
               {
                 author: "Andrzej Nowak",
-                nick: "andrzejN",
+                nick: "dataSaver",
                 avatar: "A",
                 avatarUrl: "",
                 color: "bg-blue-900",
