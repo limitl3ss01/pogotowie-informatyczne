@@ -148,7 +148,7 @@ export default function Home() {
           animation: gradient-move 18s ease-in-out infinite;
         }
       `}</style>
-      {/* ANIMACJA KARETKI + DYM */}
+      {/* ANIMACJA PENDRIVE NA SYGNALE + DYM */}
       <div
         ref={ambulanceRef}
         className="pointer-events-none fixed z-0"
@@ -157,33 +157,24 @@ export default function Home() {
         <div className="mb-4 ml-16 flex justify-center">
           <div className="bg-white text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg border-2 border-blue-300 text-lg animate-bounce">Pędzimy uratować Twój sprzęt!</div>
         </div>
-        <svg width="240" height="90" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Pendrive tył */}
-          <rect x="135" y="38" width="18" height="10" rx="3" fill="#e52d27" stroke="#0a2540" strokeWidth="2"/>
-          <rect x="150" y="41" width="3" height="4" fill="#fff" stroke="#0a2540" strokeWidth="1"/>
-          {/* Karetka */}
-          <rect x="20" y="20" width="90" height="30" rx="8" fill="#fff" stroke="#0a2540" strokeWidth="3"/>
-          <rect x="110" y="30" width="30" height="20" rx="5" fill="#e52d27" stroke="#0a2540" strokeWidth="3"/>
-          <rect x="35" y="10" width="30" height="20" rx="5" fill="#e52d27" stroke="#0a2540" strokeWidth="3"/>
-          {/* Krzyż na dachu */}
-          <rect x="48" y="13" width="4" height="14" fill="#fff"/>
-          <rect x="43" y="18" width="14" height="4" fill="#fff"/>
-          {/* Światła */}
-          <rect x="70" y="5" width="10" height="10" fill="#fff" stroke="#e52d27" strokeWidth="2"/>
-          <rect x="74" y="7" width="2" height="6" fill="#e52d27"/>
-          <rect x="72" y="11" width="6" height="2" fill="#e52d27"/>
-          {/* Koła */}
-          <circle cx="40" cy="50" r="8" fill="#0a2540" stroke="#fff" strokeWidth="3"/>
-          <circle cx="120" cy="50" r="8" fill="#0a2540" stroke="#fff" strokeWidth="3"/>
-          {/* Okna */}
-          <rect x="60" y="25" width="15" height="5" fill="#0a2540"/>
-          <rect x="80" y="25" width="15" height="5" fill="#0a2540"/>
-          <rect x="60" y="35" width="35" height="5" fill="#0a2540"/>
-          {/* Syrena */}
-          <rect x="100" y="15" width="8" height="8" rx="2" fill="#0af" stroke="#0a2540" strokeWidth="1"/>
-          {/* Reflektory */}
-          <circle cx="20" cy="35" r="4" fill="#ff0" stroke="#0a2540" strokeWidth="1"/>
-          <circle cx="20" cy="45" r="4" fill="#ff0" stroke="#0a2540" strokeWidth="1"/>
+        {/* DUŻY PENDRIVE NA SYGNALE */}
+        <svg width="240" height="90" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Korpus pendrive */}
+          <rect x="30" y="15" width="60" height="30" rx="8" fill="#e52d27" stroke="#0a2540" strokeWidth="4"/>
+          {/* Główka pendrive */}
+          <rect x="55" y="5" width="10" height="18" rx="3" fill="#fff" stroke="#0a2540" strokeWidth="2"/>
+          {/* Metalowe styki */}
+          <rect x="58" y="7" width="2" height="6" rx="1" fill="#1e90ff"/>
+          <rect x="60" y="7" width="2" height="6" rx="1" fill="#1e90ff"/>
+          {/* Syrena na górze */}
+          <rect x="62" y="0" width="6" height="6" rx="2" fill="#0af" stroke="#0a2540" strokeWidth="1"/>
+          {/* Dynamiczne "światła" sygnału */}
+          <g>
+            <motion.rect initial={{opacity:0, y:2}} animate={{opacity:[0,1,0], y:[2,0,2]}} transition={{repeat:Infinity, duration:1.2, delay:0.2}} x="65" y="-8" width="2" height="8" rx="1" fill="#0af"/>
+            <motion.rect initial={{opacity:0, y:2}} animate={{opacity:[0,1,0], y:[2,0,2]}} transition={{repeat:Infinity, duration:1.2, delay:0.6}} x="61" y="-8" width="2" height="8" rx="1" fill="#0af"/>
+          </g>
+          {/* Cień pod pendrivem */}
+          <ellipse cx="60" cy="50" rx="32" ry="7" fill="#0a2540" opacity="0.18"/>
         </svg>
       </div>
       {/* LOGO */}
