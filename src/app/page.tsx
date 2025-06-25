@@ -67,21 +67,19 @@ export default function Home() {
   // Animacja grupy karetek
   const ambulanceRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    let raf: number;
-    let pos = -240;
+    const t = -240;
     function animate() {
       if (ambulanceRef.current) {
-        ambulanceRef.current.style.left = `${pos}px`;
+        ambulanceRef.current.style.left = `${t}px`;
         ambulanceRef.current.style.top = '32vh';
       }
-      pos += 2.2;
-      if (pos > window.innerWidth) pos = -240;
-      raf = requestAnimationFrame(animate);
+      const pos = t + 2.2;
+      if (pos > window.innerWidth) {
+        ambulanceRef.current!.style.left = `${-240}px`;
+      }
+      requestAnimationFrame(animate);
     }
     animate();
-    return () => {
-      cancelAnimationFrame(raf);
-    };
   }, []);
 
   // Dodaj funkcje SVG ikon
