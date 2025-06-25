@@ -67,19 +67,21 @@ export default function Home() {
   // Animacja grupy karetek
   const ambulanceRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const t = -240;
+    let raf: number;
+    let pos = -240;
     function animate() {
       if (ambulanceRef.current) {
-        ambulanceRef.current.style.left = `${t}px`;
+        ambulanceRef.current.style.left = `${pos}px`;
         ambulanceRef.current.style.top = '32vh';
       }
-      const pos = t + 2.2;
-      if (pos > window.innerWidth) {
-        ambulanceRef.current!.style.left = `${-240}px`;
-      }
-      requestAnimationFrame(animate);
+      pos += 2.2;
+      if (pos > window.innerWidth) pos = -240;
+      raf = requestAnimationFrame(animate);
     }
     animate();
+    return () => {
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   // Dodaj funkcje SVG ikon
@@ -112,37 +114,29 @@ export default function Home() {
     (<svg key="star" className="w-10 h-10 mb-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" fill="#1e90ff" viewBox="0 0 40 40"><polygon points="20,6 24,16 35,16 26,23 29,34 20,27 11,34 14,23 5,16 16,16" stroke="#0a2540" strokeWidth="2"/></svg>),
   ];
 
-  // Optymalizacja: animacje tylko po mount
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => { setIsMounted(true); }, []);
-
   return (
-    <div className="relative min-h-screen flex flex-col items-center text-gray-900 overflow-x-hidden overflow-y-auto" style={{position: 'relative'}}>
-      {/* ANIMOWANE TŁO: tsParticles + animowany gradient tylko po mount */}
-      {isMounted && (
-        <>
-          <div className="fixed inset-0 -z-10 animate-gradient-move" style={{background: 'linear-gradient(135deg, #0a2540, #e52d27, #1e90ff, #e52d27, #0a2540)'}} />
-          <Particles
-            id="tsparticles"
-            className="fixed inset-0 -z-10"
-            options={{
-              fullScreen: false,
-              background: { color: { value: "transparent" } },
-              fpsLimit: 60,
-              particles: {
-                number: { value: typeof window !== 'undefined' && window.innerWidth < 640 ? 12 : 30, density: { enable: true } },
-                color: { value: ["#fff", "#e52d27", "#1e90ff"] },
-                shape: { type: "circle" },
-                opacity: { value: 0.3 },
-                size: { value: 3 },
-                move: { enable: true, speed: 1, direction: "none", outModes: { default: "out" } },
-                links: { enable: true, color: "#fff", opacity: 0.1, distance: 120, width: 1 },
-              },
-              detectRetina: true,
-            }}
-          />
-        </>
-      )}
+    <div className="relative min-h-screen flex flex-col items-center text-gray-900 overflow-x-hidden" style={{position: 'relative', minHeight: '100vh', overflowX: 'hidden'}}>
+      {/* ANIMOWANE TŁO: tsParticles + animowany gradient */}
+      <div className="fixed inset-0 -z-10 animate-gradient-move pointer-events-none" style={{background: 'linear-gradient(135deg, #0a2540, #e52d27, #1e90ff, #e52d27, #0a2540)', minHeight: '100vh'}} />
+      <Particles
+        id="tsparticles"
+        className="fixed inset-0 -z-10 pointer-events-none"
+        options={{
+          fullScreen: false,
+          background: { color: { value: "transparent" } },
+          fpsLimit: 60,
+          particles: {
+            number: { value: 30, density: { enable: true } },
+            color: { value: ["#fff", "#e52d27", "#1e90ff"] },
+            shape: { type: "circle" },
+            opacity: { value: 0.3 },
+            size: { value: 3 },
+            move: { enable: true, speed: 1, direction: "none", outModes: { default: "out" } },
+            links: { enable: true, color: "#fff", opacity: 0.1, distance: 120, width: 1 },
+          },
+          detectRetina: true,
+        }}
+      />
       <style jsx global>{`
         @keyframes gradient-move {
           0% { background-position: 0% 50%; }
@@ -154,7 +148,7 @@ export default function Home() {
           animation: gradient-move 18s ease-in-out infinite;
         }
       `}</style>
-      {/* Animacja karetki w tle - zawsze widoczna */}
+      {/* ANIMACJA KARETKI + DYM */}
       <div
         ref={ambulanceRef}
         className="pointer-events-none fixed z-0"
@@ -212,14 +206,13 @@ export default function Home() {
         className="w-full flex flex-col items-center justify-center py-12 px-4 text-center text-white relative z-10"
       >
         <h1
-          className={`text-4xl sm:text-6xl mb-4 tracking-tight animate-bounce ${bungee.className} break-keep whitespace-pre-line w-full text-balance`}
+          className={`text-4xl sm:text-6xl mb-4 tracking-tight animate-bounce ${bungee.className}`}
           style={{
             textShadow: '0 4px 16px #000, 0 1px 0 #fff, 2px 2px 0 #e52d27, -2px -2px 0 #0a2540',
             letterSpacing: '2px',
-            wordBreak: 'keep-all',
           }}
         >
-          <AnimatedText text={"Pogotowie\u00A0informatyczne 24/7 – zadzwoń teraz"} />
+          <AnimatedText text="Pogotowie informatyczne 24/7 – zadzwoń teraz" />
         </h1>
         <p className="text-xl sm:text-2xl mb-4 font-medium text-blue-100 max-w-2xl mx-auto">Mobilna pomoc IT na terenie całego województwa Kujawsko-Pomorskiego i okolic – szybko, profesjonalnie, z dojazdem do klienta. Obsługujemy osoby prywatne i firmy, 24 godziny na dobę!</p>
         <a href="tel:573021012" className="inline-block mt-4 px-10 py-4 bg-gradient-to-r from-red-600 via-blue-700 to-blue-900 text-white font-bold rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 text-2xl">573 021 012</a>
@@ -241,7 +234,7 @@ export default function Home() {
               letterSpacing: '2px',
             }}
           >
-            <AnimatedText text={"Zakres\u00A0usług"} />
+            <AnimatedText text="Zakres usług" />
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -283,7 +276,7 @@ export default function Home() {
             color: '#fff',
           }}
         >
-          <AnimatedText text={"Dlaczego warto wybrać\u00A0nas?"} />
+          <AnimatedText text="Dlaczego warto wybrać nas?" />
         </h2>
         <div className="flex flex-col sm:flex-row gap-8 justify-center items-center max-w-4xl mx-auto">
           <div className="flex-1 bg-white/40 backdrop-blur-lg rounded-2xl shadow-lg p-6 m-2 flex flex-col items-center justify-center text-center min-h-[120px] border-2 border-white/30 transition-all duration-300 group cursor-pointer overflow-hidden hover:scale-105 hover:shadow-2xl hover:bg-[#e52d27]/80 hover:border-[#e52d27]">
@@ -371,7 +364,7 @@ export default function Home() {
             color: '#fff',
           }}
         >
-          <AnimatedText text={"Opinie\u00A0klientów"} />
+          <AnimatedText text="Opinie klientów" />
         </h2>
         <div className="max-w-2xl mx-auto">
           <Slider
