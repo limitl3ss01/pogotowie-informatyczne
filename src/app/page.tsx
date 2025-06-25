@@ -68,15 +68,32 @@ export default function Home() {
   const ambulanceRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     let raf: number;
-    let pos = -240;
+    let pos = -400;
+    let phase: 'move' | 'plug' = 'move';
+    let plugProgress = 0;
     function animate() {
       if (ambulanceRef.current) {
-        ambulanceRef.current.style.left = `${pos}px`;
-        ambulanceRef.current.style.top = '32vh';
+        if (phase === 'move') {
+          ambulanceRef.current.style.left = `${pos}px`;
+          ambulanceRef.current.style.top = '30vh';
+          pos += 2.2;
+          if (pos >= window.innerWidth - 480) {
+            phase = 'plug';
+            plugProgress = 0;
+          }
+        } else if (phase === 'plug') {
+          // Wsuń pendrive do portu (ok. 40px)
+          plugProgress += 1.2;
+          ambulanceRef.current.style.left = `${window.innerWidth - 480 + Math.min(plugProgress, 40)}px`;
+          if (plugProgress < 40) {
+            raf = requestAnimationFrame(animate);
+            return;
+          }
+        }
       }
-      pos += 2.2;
-      if (pos > window.innerWidth) pos = -240;
-      raf = requestAnimationFrame(animate);
+      if (phase === 'move' || plugProgress < 40) {
+        raf = requestAnimationFrame(animate);
+      }
     }
     animate();
     return () => {
@@ -213,8 +230,14 @@ export default function Home() {
           <rect x="352" y="56" width="6" height="12" rx="2" fill="#ffd700" stroke="#0a2540" strokeWidth="1"/>
           {/* Połysk na końcówce */}
           <ellipse cx="345" cy="52" rx="10" ry="3" fill="#fff" opacity="0.3"/>
-          {/* SYGNAŁ POLICYJNY – przesunięty na górę pendrive */}
+          {/* WEJŚCIE USB (port) */}
           <g>
+            <rect x="370" y="44" width="24" height="32" rx="6" fill="#222" stroke="#888" strokeWidth="3"/>
+            <rect x="374" y="52" width="16" height="16" rx="3" fill="#e0e0e0" stroke="#b0b0b0" strokeWidth="2"/>
+            {/* Detale portu */}
+            <rect x="378" y="56" width="4" height="8" rx="1" fill="#888"/>
+            <rect x="386" y="56" width="4" height="8" rx="1" fill="#888"/>
+          </g>
             {/* Glow wokół lampy */}
             <ellipse cx="200" cy="40" rx="32" ry="12" fill="url(#glowBlue)" opacity="0.5"/>
             <ellipse cx="200" cy="40" rx="32" ry="12" fill="url(#glowRed)" opacity="0.5"/>
