@@ -152,29 +152,34 @@ export default function Home() {
       <div
         ref={ambulanceRef}
         className="pointer-events-none fixed z-0"
-        style={{ top: '32vh', width: 240 }}
+        style={{ top: '32vh', width: 320 }}
       >
-        <div className="mb-4 ml-16 flex justify-center">
+        <div className="mb-4 ml-24 flex justify-center">
           <div className="bg-white text-blue-900 font-bold px-8 py-4 rounded-full shadow-lg border-2 border-blue-300 text-lg animate-bounce">Pędzimy uratować Twój sprzęt!</div>
         </div>
-        {/* DUŻY PENDRIVE NA SYGNALE */}
-        <svg width="240" height="90" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Klasyczny pendrive na sygnale */}
+        <svg width="320" height="90" viewBox="0 0 320 90" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Korpus pendrive */}
-          <rect x="30" y="15" width="60" height="30" rx="8" fill="#e52d27" stroke="#0a2540" strokeWidth="4"/>
-          {/* Główka pendrive */}
-          <rect x="55" y="5" width="10" height="18" rx="3" fill="#fff" stroke="#0a2540" strokeWidth="2"/>
-          {/* Metalowe styki */}
-          <rect x="58" y="7" width="2" height="6" rx="1" fill="#1e90ff"/>
-          <rect x="60" y="7" width="2" height="6" rx="1" fill="#1e90ff"/>
+          <rect x="60" y="25" width="180" height="40" rx="12" fill="#e52d27" stroke="#0a2540" strokeWidth="5"/>
+          {/* Metalowa końcówka */}
+          <rect x="240" y="32" width="40" height="26" rx="5" fill="#f4f4f4" stroke="#0a2540" strokeWidth="3"/>
+          {/* Linia oddzielająca końcówkę */}
+          <rect x="238" y="30" width="4" height="30" rx="2" fill="#bbb"/>
+          {/* Styki USB */}
+          <rect x="250" y="38" width="6" height="12" rx="2" fill="#1e90ff"/>
+          <rect x="262" y="38" width="6" height="12" rx="2" fill="#1e90ff"/>
+          {/* Dziurka na smycz */}
+          <ellipse cx="70" cy="45" rx="6" ry="6" fill="#fff" stroke="#0a2540" strokeWidth="2"/>
+          <ellipse cx="70" cy="45" rx="2.5" ry="2.5" fill="#e52d27"/>
           {/* Syrena na górze */}
-          <rect x="62" y="0" width="6" height="6" rx="2" fill="#0af" stroke="#0a2540" strokeWidth="1"/>
-          {/* Dynamiczne "światła" sygnału */}
+          <rect x="150" y="10" width="20" height="16" rx="6" fill="#0af" stroke="#0a2540" strokeWidth="2"/>
+          {/* Dynamiczne światła sygnału */}
           <g>
-            <motion.rect initial={{opacity:0, y:2}} animate={{opacity:[0,1,0], y:[2,0,2]}} transition={{repeat:Infinity, duration:1.2, delay:0.2}} x="65" y="-8" width="2" height="8" rx="1" fill="#0af"/>
-            <motion.rect initial={{opacity:0, y:2}} animate={{opacity:[0,1,0], y:[2,0,2]}} transition={{repeat:Infinity, duration:1.2, delay:0.6}} x="61" y="-8" width="2" height="8" rx="1" fill="#0af"/>
+            <motion.rect initial={{opacity:0, y:2}} animate={{opacity:[0,1,0], y:[2,0,2]}} transition={{repeat:Infinity, duration:1.2, delay:0.2}} x="158" y="0" width="4" height="12" rx="2" fill="#0af"/>
+            <motion.rect initial={{opacity:0, y:2}} animate={{opacity:[0,1,0], y:[2,0,2]}} transition={{repeat:Infinity, duration:1.2, delay:0.6}} x="162" y="0" width="4" height="12" rx="2" fill="#0af"/>
           </g>
           {/* Cień pod pendrivem */}
-          <ellipse cx="60" cy="50" rx="32" ry="7" fill="#0a2540" opacity="0.18"/>
+          <ellipse cx="150" cy="75" rx="80" ry="10" fill="#0a2540" opacity="0.18"/>
         </svg>
       </div>
       {/* LOGO */}
