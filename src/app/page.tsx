@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Bungee } from 'next/font/google';
-import { Particles } from "@tsparticles/react";
+// import { Particles } from "@tsparticles/react";
 import { motion } from "framer-motion";
 import { Howl } from 'howler';
 import Slider from "react-slick";
