@@ -117,7 +117,7 @@ export default function Home() {
   useEffect(() => { setIsMounted(true); }, []);
 
   return (
-    <div className="relative flex flex-col items-center text-gray-900 overflow-x-hidden" style={{position: 'relative'}}>
+    <div className="relative text-gray-900 overflow-x-hidden" style={{position: 'relative'}}>
       {/* ANIMOWANE TŁO: tsParticles + animowany gradient renderowane od razu */}
       <div className="fixed top-0 left-0 w-full h-full -z-10 animate-gradient-move" style={{background: 'linear-gradient(135deg, #0a2540, #e52d27, #1e90ff, #e52d27, #0a2540)'}} />
       {/* Animacja karetki tylko po mount */}
