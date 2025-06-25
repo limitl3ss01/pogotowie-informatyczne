@@ -230,14 +230,8 @@ export default function Home() {
           <rect x="352" y="56" width="6" height="12" rx="2" fill="#ffd700" stroke="#0a2540" strokeWidth="1"/>
           {/* Połysk na końcówce */}
           <ellipse cx="345" cy="52" rx="10" ry="3" fill="#fff" opacity="0.3"/>
-          {/* WEJŚCIE USB (port) */}
+          {/* SYGNAŁ POLICYJNY – przesunięty na górę pendrive */}
           <g>
-            <rect x="370" y="44" width="24" height="32" rx="6" fill="#222" stroke="#888" strokeWidth="3"/>
-            <rect x="374" y="52" width="16" height="16" rx="3" fill="#e0e0e0" stroke="#b0b0b0" strokeWidth="2"/>
-            {/* Detale portu */}
-            <rect x="378" y="56" width="4" height="8" rx="1" fill="#888"/>
-            <rect x="386" y="56" width="4" height="8" rx="1" fill="#888"/>
-          </g>
             {/* Glow wokół lampy */}
             <ellipse cx="200" cy="40" rx="32" ry="12" fill="url(#glowBlue)" opacity="0.5"/>
             <ellipse cx="200" cy="40" rx="32" ry="12" fill="url(#glowRed)" opacity="0.5"/>
@@ -306,6 +300,14 @@ export default function Home() {
               animate={{ opacity: [0, 1, 0] }}
               transition={{ repeat: Infinity, duration: 1.2, times: [0, 0.4, 0.6, 1], delay: 0.6 }}
             />
+          </g>
+          {/* PORT USB (na samym końcu, zawsze widoczny) */}
+          <g>
+            <rect x="370" y="44" width="24" height="32" rx="6" fill="#222" stroke="#888" strokeWidth="3"/>
+            <rect x="374" y="52" width="16" height="16" rx="3" fill="#e0e0e0" stroke="#b0b0b0" strokeWidth="2"/>
+            {/* Detale portu */}
+            <rect x="378" y="56" width="4" height="8" rx="1" fill="#888"/>
+            <rect x="386" y="56" width="4" height="8" rx="1" fill="#888"/>
           </g>
         </svg>
       </div>
