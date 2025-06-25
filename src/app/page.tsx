@@ -194,8 +194,8 @@ export default function Home() {
           {/* Korpus pendrive z gradientem i połyskiem */}
           <rect x="80" y="40" width="240" height="40" rx="16" fill="url(#pendriveRed)" stroke="#a31515" strokeWidth="4"/>
           <ellipse cx="200" cy="60" rx="110" ry="18" fill="url(#shine)" opacity="0.18"/>
-          {/* Logo błyskawicy */}
-          <polygon points="170,55 185,55 175,70 190,70 165,90 175,70 160,70" fill="#fff" opacity="0.7" stroke="#fff" strokeWidth="1"/>
+          {/* Błyskawica na środku pendrive */}
+          <polygon points="200,52 215,62 205,62 220,78 190,66 205,66 190,52" fill="#fff" opacity="0.85" stroke="#fff" strokeWidth="1.5"/>
           {/* Dziurka na smycz z połyskiem */}
           <ellipse cx="95" cy="60" rx="8" ry="8" fill="#fff" stroke="#0a2540" strokeWidth="2"/>
           <ellipse cx="95" cy="60" rx="3" ry="3" fill="#e52d27"/>
@@ -213,19 +213,19 @@ export default function Home() {
           <rect x="352" y="56" width="6" height="12" rx="2" fill="#ffd700" stroke="#0a2540" strokeWidth="1"/>
           {/* Połysk na końcówce */}
           <ellipse cx="345" cy="52" rx="10" ry="3" fill="#fff" opacity="0.3"/>
-          {/* SYGNAŁ POLICYJNY */}
+          {/* SYGNAŁ POLICYJNY – przesunięty na górę pendrive */}
           <g>
             {/* Glow wokół lampy */}
-            <ellipse cx="200" cy="32" rx="32" ry="12" fill="url(#glowBlue)" opacity="0.5"/>
-            <ellipse cx="200" cy="32" rx="32" ry="12" fill="url(#glowRed)" opacity="0.5"/>
+            <ellipse cx="200" cy="40" rx="32" ry="12" fill="url(#glowBlue)" opacity="0.5"/>
+            <ellipse cx="200" cy="40" rx="32" ry="12" fill="url(#glowRed)" opacity="0.5"/>
             {/* Podstawa lampy */}
-            <rect x="180" y="28" width="40" height="12" rx="6" fill="#222" stroke="#0a2540" strokeWidth="2"/>
+            <rect x="180" y="36" width="40" height="12" rx="6" fill="#222" stroke="#0a2540" strokeWidth="2"/>
             {/* Kopuła lampy: pół na pół niebieska i czerwona, z połyskiem */}
-            <ellipse cx="200" cy="28" rx="20" ry="14" fill="url(#blueRedSplit)" stroke="#0a2540" strokeWidth="2"/>
-            <ellipse cx="200" cy="24" rx="16" ry="6" fill="#fff" opacity="0.18"/>
+            <ellipse cx="200" cy="36" rx="20" ry="14" fill="url(#blueRedSplit)" stroke="#0a2540" strokeWidth="2"/>
+            <ellipse cx="200" cy="32" rx="16" ry="6" fill="#fff" opacity="0.18"/>
             {/* Dynamiczne, obracające się łuki (niebieski i czerwony) */}
             <motion.path
-              d="M200 10 a 22 22 0 0 1 22 22"
+              d="M200 18 a 22 22 0 0 1 22 22"
               fill="none"
               stroke="#0af"
               strokeWidth="6"
@@ -233,10 +233,10 @@ export default function Home() {
               initial={{ rotate: 0, opacity: 0.8 }}
               animate={{ rotate: [0, 360], opacity: [0.8, 0.2, 0.8] }}
               transition={{ repeat: Infinity, duration: 1.2, ease: 'linear' }}
-              style={{ originX: '200px', originY: '28px' }}
+              style={{ originX: '200px', originY: '36px' }}
             />
             <motion.path
-              d="M200 10 a 22 22 0 0 0 -22 22"
+              d="M200 18 a 22 22 0 0 0 -22 22"
               fill="none"
               stroke="#e52d27"
               strokeWidth="6"
@@ -244,11 +244,11 @@ export default function Home() {
               initial={{ rotate: 180, opacity: 0.8 }}
               animate={{ rotate: [180, 540], opacity: [0.8, 0.2, 0.8] }}
               transition={{ repeat: Infinity, duration: 1.2, ease: 'linear' }}
-              style={{ originX: '200px', originY: '28px' }}
+              style={{ originX: '200px', originY: '36px' }}
             />
             {/* Promienie światła (błyski) */}
             <motion.line
-              x1="200" y1="8" x2="200" y2="-16"
+              x1="200" y1="16" x2="200" y2="-8"
               stroke="#0af"
               strokeWidth="4"
               strokeLinecap="round"
@@ -257,7 +257,7 @@ export default function Home() {
               transition={{ repeat: Infinity, duration: 1.2, times: [0, 0.1, 0.3, 1], delay: 0 }}
             />
             <motion.line
-              x1="200" y1="8" x2="220" y2="-8"
+              x1="200" y1="16" x2="220" y2="0"
               stroke="#e52d27"
               strokeWidth="4"
               strokeLinecap="round"
@@ -266,7 +266,7 @@ export default function Home() {
               transition={{ repeat: Infinity, duration: 1.2, times: [0, 0.2, 0.4, 1], delay: 0.2 }}
             />
             <motion.line
-              x1="200" y1="8" x2="180" y2="-8"
+              x1="200" y1="16" x2="180" y2="0"
               stroke="#0af"
               strokeWidth="4"
               strokeLinecap="round"
@@ -275,7 +275,7 @@ export default function Home() {
               transition={{ repeat: Infinity, duration: 1.2, times: [0, 0.3, 0.5, 1], delay: 0.4 }}
             />
             <motion.line
-              x1="200" y1="8" x2="200" y2="-24"
+              x1="200" y1="16" x2="200" y2="-16"
               stroke="#e52d27"
               strokeWidth="4"
               strokeLinecap="round"
