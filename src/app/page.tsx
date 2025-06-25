@@ -394,22 +394,22 @@ export default function Home() {
 
       {/* Sticky Call Button */}
       <div className="w-full flex justify-end px-4 sm:px-8 pt-6">
-  <button
-    onClick={() => {
-      clickSound.play();
-      const contact = document.getElementById('kontakt');
-      if (contact) contact.scrollIntoView({ behavior: 'smooth' });
-    }}
-    className="bg-gradient-to-r from-red-600 via-blue-700 to-blue-900 text-white font-bold rounded-full shadow-2xl px-4 py-3 sm:px-6 sm:py-4 text-lg sm:text-xl flex items-center gap-2 sm:gap-3 hover:scale-110 hover:shadow-3xl transition-all duration-300 border-4 border-white/40 backdrop-blur-lg"
-    style={{ boxShadow: '0 8px 32px 0 rgba(10,37,64,0.25)' }}
-    aria-label="Zadzwoń teraz"
-  >
-    <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5.75C3 4.784 3.784 4 4.75 4h2.5A1.75 1.75 0 0 1 9 5.75v2.5A1.75 1.75 0 0 1 7.25 10H6.5a11.5 11.5 0 0 0 11 11v-.75A1.75 1.75 0 0 1 19.25 18h2.5A1.75 1.75 0 0 1 23 19.75v2.5A1.75 1.75 0 0 1 21.25 24h-2.5A1.75 1.75 0 0 1 17 22.25v-2.5A1.75 1.75 0 0 1 18.75 18h.75a11.5 11.5 0 0 0-11-11v.75A1.75 1.75 0 0 1 4.75 6H2.25A1.75 1.75 0 0 1 .5 4.25v-2.5A1.75 1.75 0 0 1 2.25 0h2.5A1.75 1.75 0 0 1 6.5 1.75v2.5A1.75 1.75 0 0 1 4.75 6H4a11.5 11.5 0 0 0 11 11v-.75A1.75 1.75 0 0 1 16.25 16h-2.5A1.75 1.75 0 0 1 12 14.25v-2.5A1.75 1.75 0 0 1 13.75 10h.75a11.5 11.5 0 0 0-11-11v.75A1.75 1.75 0 0 1 2.25 2H.5A1.75 1.75 0 0 1-1.25.25v-2.5A1.75 1.75 0 0 1 .5-2h2.5A1.75 1.75 0 0 1 4.75 0v2.5A1.75 1.75 0 0 1 3 4.25v1.5z"/>
-    </svg>
-    Zadzwoń
-  </button>
-</div>
+        <button
+          onClick={() => {
+            clickSound.play();
+            const contact = document.getElementById('kontakt');
+            if (contact) contact.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="bg-gradient-to-r from-red-600 via-blue-700 to-blue-900 text-white font-bold rounded-full shadow-2xl px-4 py-3 sm:px-6 sm:py-4 text-lg sm:text-xl flex items-center gap-2 sm:gap-3 hover:scale-110 hover:shadow-3xl transition-all duration-300 border-4 border-white/40 backdrop-blur-lg"
+          style={{ boxShadow: '0 8px 32px 0 rgba(10,37,64,0.25)' }}
+          aria-label="Zadzwoń teraz"
+        >
+          <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 5.75C3 4.784 3.784 4 4.75 4h2.5A1.75 1.75 0 0 1 9 5.75v2.5A1.75 1.75 0 0 1 7.25 10H6.5a11.5 11.5 0 0 0 11 11v-.75A1.75 1.75 0 0 1 19.25 18h2.5A1.75 1.75 0 0 1 23 19.75v2.5A1.75 1.75 0 0 1 21.25 24h-2.5A1.75 1.75 0 0 1 17 22.25v-2.5A1.75 1.75 0 0 1 18.75 18h.75a11.5 11.5 0 0 0-11-11v.75A1.75 1.75 0 0 1 4.75 6H2.25A1.75 1.75 0 0 1 .5 4.25v-2.5A1.75 1.75 0 0 1 2.25 0h2.5A1.75 1.75 0 0 1 6.5 1.75v2.5A1.75 1.75 0 0 1 4.75 6H4a11.5 11.5 0 0 0 11 11v-.75A1.75 1.75 0 0 1 16.25 16h-2.5A1.75 1.75 0 0 1 12 14.25v-2.5A1.75 1.75 0 0 1 13.75 10h.75a11.5 11.5 0 0 0-11-11v.75A1.75 1.75 0 0 1 2.25 2H.5A1.75 1.75 0 0 1-1.25.25v-2.5A1.75 1.75 0 0 1 .5-2h2.5A1.75 1.75 0 0 1 4.75 0v2.5A1.75 1.75 0 0 1 3 4.25v1.5z"/>
+          </svg>
+          Zadzwoń
+        </button>
+      </div>
     </div>
   );
 }
