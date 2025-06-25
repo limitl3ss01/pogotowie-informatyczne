@@ -507,7 +507,9 @@ export default function Home() {
             {[
               {
                 author: "Anna Kowalska",
+                nick: "anna.k",
                 avatar: "A",
+                avatarUrl: "https://randomuser.me/api/portraits/women/44.jpg",
                 color: "bg-blue-500",
                 date: "2024-05-10",
                 rating: 5,
@@ -515,7 +517,9 @@ export default function Home() {
               },
               {
                 author: "Marek Piotrowski",
+                nick: "marekP",
                 avatar: "M",
+                avatarUrl: "https://randomuser.me/api/portraits/men/32.jpg",
                 color: "bg-red-500",
                 date: "2024-04-22",
                 rating: 5,
@@ -523,7 +527,9 @@ export default function Home() {
               },
               {
                 author: "Ewa Zielińska",
+                nick: "EwaZ",
                 avatar: "E",
+                avatarUrl: "",
                 color: "bg-green-500",
                 date: "2024-03-15",
                 rating: 5,
@@ -531,7 +537,9 @@ export default function Home() {
               },
               {
                 author: "Tomasz Lewandowski",
+                nick: "tom_lew",
                 avatar: "T",
+                avatarUrl: "https://randomuser.me/api/portraits/men/65.jpg",
                 color: "bg-yellow-500",
                 date: "2024-02-28",
                 rating: 5,
@@ -539,7 +547,9 @@ export default function Home() {
               },
               {
                 author: "Katarzyna Nowak",
+                nick: "kasiatek",
                 avatar: "K",
+                avatarUrl: "",
                 color: "bg-pink-500",
                 date: "2024-01-12",
                 rating: 4,
@@ -547,7 +557,9 @@ export default function Home() {
               },
               {
                 author: "Paweł Grabowski",
+                nick: "pawelG",
                 avatar: "P",
+                avatarUrl: "https://randomuser.me/api/portraits/men/12.jpg",
                 color: "bg-indigo-500",
                 date: "2023-12-03",
                 rating: 5,
@@ -555,7 +567,9 @@ export default function Home() {
               },
               {
                 author: "Joanna Szymańska",
+                nick: "joasiaS",
                 avatar: "J",
+                avatarUrl: "https://randomuser.me/api/portraits/women/68.jpg",
                 color: "bg-teal-500",
                 date: "2023-11-18",
                 rating: 5,
@@ -563,7 +577,9 @@ export default function Home() {
               },
               {
                 author: "Grzegorz Wójcik",
+                nick: "grzesiekW",
                 avatar: "G",
+                avatarUrl: "",
                 color: "bg-orange-500",
                 date: "2023-10-05",
                 rating: 4,
@@ -571,11 +587,133 @@ export default function Home() {
               },
               {
                 author: "Monika Pawlak",
+                nick: "monikaP",
                 avatar: "M",
+                avatarUrl: "https://randomuser.me/api/portraits/women/12.jpg",
                 color: "bg-purple-500",
                 date: "2023-09-21",
                 rating: 5,
                 text: "Zgłoszenie awarii w nocy, rano komputer już działał. Super!"
+              },
+              {
+                author: "Krzysztof Baran",
+                nick: "krisbaran",
+                avatar: "K",
+                avatarUrl: "",
+                color: "bg-blue-800",
+                date: "2023-08-10",
+                rating: 5,
+                text: "Bardzo polecam! Szybko, sprawnie, bez zbędnych formalności."
+              },
+              {
+                author: "Natalia Urban",
+                nick: "nataliaU",
+                avatar: "N",
+                avatarUrl: "https://randomuser.me/api/portraits/women/33.jpg",
+                color: "bg-pink-700",
+                date: "2023-07-02",
+                rating: 5,
+                text: "Najlepszy serwis komputerowy w okolicy!"
+              },
+              {
+                author: "user1234",
+                nick: "user1234",
+                avatar: "U",
+                avatarUrl: "",
+                color: "bg-gray-400",
+                date: "2023-06-15",
+                rating: 4,
+                text: "Wszystko ok, polecam."
+              },
+              {
+                author: "Sebastian Krawczyk",
+                nick: "sebastianK",
+                avatar: "S",
+                avatarUrl: "https://randomuser.me/api/portraits/men/23.jpg",
+                color: "bg-blue-400",
+                date: "2023-05-11",
+                rating: 5,
+                text: "Bardzo szybka reakcja na zgłoszenie, komputer naprawiony tego samego dnia. Polecam każdemu!"
+              },
+              {
+                author: "Agnieszka Lis",
+                nick: "agaLis",
+                avatar: "A",
+                avatarUrl: "",
+                color: "bg-pink-400",
+                date: "2023-04-29",
+                rating: 4,
+                text: "Miła obsługa, wszystko wyjaśnione krok po kroku. Cena mogłaby być niższa, ale jakość super."
+              },
+              {
+                author: "Michał Nowicki",
+                nick: "michuN",
+                avatar: "M",
+                avatarUrl: "https://randomuser.me/api/portraits/men/77.jpg",
+                color: "bg-blue-700",
+                date: "2023-03-18",
+                rating: 5,
+                text: "Naprawa laptopa przebiegła sprawnie, bardzo dobry kontakt z serwisem."
+              },
+              {
+                author: "Karolina Dąbrowska",
+                nick: "karolinkaD",
+                avatar: "K",
+                avatarUrl: "https://randomuser.me/api/portraits/women/21.jpg",
+                color: "bg-pink-600",
+                date: "2023-02-07",
+                rating: 5,
+                text: "Polecam! Fachowa pomoc, sympatyczna obsługa, szybka realizacja."
+              },
+              {
+                author: "Piotr Maj",
+                nick: "piotrmaj",
+                avatar: "P",
+                avatarUrl: "",
+                color: "bg-green-700",
+                date: "2022-12-19",
+                rating: 4,
+                text: "Usługa wykonana poprawnie, sprzęt działa jak nowy."
+              },
+              {
+                author: "Zofia Król",
+                nick: "zofkaK",
+                avatar: "Z",
+                avatarUrl: "https://randomuser.me/api/portraits/women/19.jpg",
+                color: "bg-yellow-600",
+                date: "2022-11-02",
+                rating: 5,
+                text: "Najlepszy serwis w mieście! Dziękuję za uratowanie moich zdjęć."
+              },
+              {
+                author: "Bartek Wrona",
+                nick: "bartekw",
+                avatar: "B",
+                avatarUrl: "",
+                color: "bg-orange-700",
+                date: "2022-10-15",
+                rating: 5,
+                text: "Szybko, sprawnie, bezproblemowo. Polecam każdemu!"
+              },
+              {
+                author: "Julia Pawłowska",
+                nick: "juliaP",
+                avatar: "J",
+                avatarUrl: "https://randomuser.me/api/portraits/women/25.jpg",
+                color: "bg-purple-400",
+                date: "2022-09-30",
+                rating: 5,
+                text: "Bardzo profesjonalna obsługa, wszystko działa jak należy."
+              },
+              {
+                author: "Andrzej Nowak",
+                nick: "andrzejN",
+                avatar: "A",
+                avatarUrl: "",
+                color: "bg-blue-900",
+                date: "2022-08-12",
+                rating: 4,
+                text: "Serwis godny polecenia, choć czas oczekiwania mógłby być krótszy."
               },
             ].map((op, i) => (
               <motion.div
@@ -587,14 +725,20 @@ export default function Home() {
                 className="flex flex-col sm:flex-row items-center gap-6 justify-center min-h-[180px] max-w-xl mx-auto bg-white rounded-2xl shadow-2xl border border-gray-200 px-8 py-6 my-4 relative overflow-hidden review-card"
                 style={{ boxShadow: '0 8px 32px 0 rgba(10,37,64,0.10)' }}
               >
-                {/* Avatar */}
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-lg ring-4 ring-white/60 ${op.color} select-none`}>
-                  {op.avatar}
-                </div>
+                {/* Avatar lub zdjęcie */}
+                {op.avatarUrl ? (
+                  <img src={op.avatarUrl} alt={op.author} className="w-16 h-16 rounded-full object-cover shadow-lg ring-4 ring-white/60 select-none" />
+                ) : (
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-lg ring-4 ring-white/60 ${op.color} select-none`}>
+                    {op.avatar}
+                  </div>
+                )}
                 {/* Treść */}
                 <div className="flex-1 flex flex-col items-start justify-center text-left">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="font-semibold text-lg text-gray-900">{op.author.split(' ')[0]} {op.author.split(' ')[1][0]}.</span>
+                    <span className="font-semibold text-lg text-gray-900">
+                      {op.nick ? op.nick : op.author.split(' ')[0] + ' ' + op.author.split(' ')[1][0] + '.'}
+                    </span>
                     {/* Ikona Google */}
                     <svg className="w-6 h-6 ml-1" viewBox="0 0 48 48"><g><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 6 .9 8.3 2.7l6.2-6.2C34.6 4.5 29.6 2.5 24 2.5 12.7 2.5 3.5 11.7 3.5 23S12.7 43.5 24 43.5c10.5 0 20-7.7 20-20 0-1.3-.1-2.7-.3-3.5z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 17.1 19.2 14 24 14c3.1 0 6 .9 8.3 2.7l6.2-6.2C34.6 4.5 29.6 2.5 24 2.5c-7.2 0-13 5.8-13 13 0 2.1.5 4.1 1.3 5.7z"/><path fill="#FBBC05" d="M24 43.5c5.7 0 10.5-1.9 14.3-5.1l-6.6-5.4c-2.1 1.4-4.8 2.2-7.7 2.2-6.1 0-11.3-4.1-13.1-9.6l-7 5.4C7.7 39.2 15.2 43.5 24 43.5z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-1.1 3.1-4.2 5.5-7.7 5.5-4.7 0-8.5-3.8-8.5-8.5s3.8-8.5 8.5-8.5c2.1 0 4 .7 5.5 2.1l6.2-6.2C34.6 4.5 29.6 2.5 24 2.5c-7.2 0-13 5.8-13 13s5.8 13 13 13c6.1 0 11.2-4.1 12.7-9.5z"/></g></svg>
                   </div>
