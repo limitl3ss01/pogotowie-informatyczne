@@ -776,6 +776,70 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* FAQ */}
+      <motion.section
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.5 }}
+        className="w-full py-12 px-4 text-center relative z-10"
+      >
+        <h2
+          className={`text-3xl sm:text-5xl mb-8 text-center animate-fade-in-up ${bungee.className}`}
+          style={{
+            textShadow: '0 4px 16px #000, 0 1px 0 #fff, 2px 2px 0 #e52d27, -2px -2px 0 #0a2540',
+            letterSpacing: '2px',
+            color: '#fff',
+          }}
+        >
+          <AnimatedText text="Najczęstsze pytania (FAQ)" />
+        </h2>
+        <div className="max-w-2xl mx-auto flex flex-col gap-4">
+          {[
+            {
+              q: "Jak szybko możecie przyjechać po zgłoszeniu awarii?",
+              a: "W większości przypadków docieramy do klienta w ciągu 1-2 godzin od zgłoszenia, a często nawet szybciej na terenie województwa Kujawsko-Pomorskiego."
+            },
+            {
+              q: "Czy diagnoza usterki jest płatna?",
+              a: "Diagnoza usterki na miejscu jest bezpłatna, płacisz tylko za faktyczną naprawę lub usługę."
+            },
+            {
+              q: "Czy naprawiacie sprzęt na miejscu, czy zabieracie do serwisu?",
+              a: "Większość napraw wykonujemy od razu u klienta. Tylko poważniejsze przypadki wymagają zabrania sprzętu do serwisu."
+            },
+            {
+              q: "Czy pomagacie także firmom, czy tylko osobom prywatnym?",
+              a: "Obsługujemy zarówno osoby prywatne, jak i firmy – oferujemy także stałą obsługę informatyczną dla biznesu."
+            },
+            {
+              q: "Jakie formy płatności akceptujecie?",
+              a: "Akceptujemy płatność gotówką, kartą oraz przelewem. Wystawiamy faktury VAT."
+            },
+            {
+              q: "Czy odzyskujecie dane z uszkodzonych dysków?",
+              a: "Tak, mamy doświadczenie w odzyskiwaniu danych z dysków HDD, SSD, pendrive'ów i kart pamięci."
+            },
+          ].map((item, idx) => (
+            <motion.details
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * idx, duration: 0.5 }}
+              className="bg-white/40 backdrop-blur-lg rounded-2xl shadow-lg border-2 border-white/30 p-5 text-left group cursor-pointer transition-all duration-300 hover:bg-[#e52d27]/80 hover:border-[#e52d27]"
+            >
+              <summary className="font-bold text-lg text-blue-900 group-hover:text-white select-none flex items-center justify-between">
+                {item.q}
+                <span className="ml-2 text-2xl transition-transform duration-300 group-open:rotate-90">›</span>
+              </summary>
+              <div className="mt-2 text-gray-900 group-hover:text-white transition-colors duration-300">
+                {item.a}
+              </div>
+            </motion.details>
+          ))}
+        </div>
+      </motion.section>
+
       {/* Sticky Call Button */}
       <div className="w-full flex justify-end px-4 sm:px-8 pt-6">
         <button
