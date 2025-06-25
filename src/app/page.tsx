@@ -399,7 +399,7 @@ export default function Home() {
           const contact = document.getElementById('kontakt');
           if (contact) contact.scrollIntoView({ behavior: 'smooth' });
         }}
-        className="fixed bottom-4 right-4 z-50 bg-gradient-to-r from-red-600 via-blue-700 to-blue-900 text-white font-bold rounded-full shadow-2xl px-4 py-3 sm:px-6 sm:py-4 text-lg sm:text-xl flex items-center gap-2 sm:gap-3 hover:scale-110 hover:shadow-3xl transition-all duration-300 border-4 border-white/40 backdrop-blur-lg"
+        className="z-50 bg-gradient-to-r from-red-600 via-blue-700 to-blue-900 text-white font-bold rounded-full shadow-2xl px-4 py-3 sm:px-6 sm:py-4 text-lg sm:text-xl flex items-center gap-2 sm:gap-3 hover:scale-110 hover:shadow-3xl transition-all duration-300 border-4 border-white/40 backdrop-blur-lg"
         style={{boxShadow:'0 8px 32px 0 rgba(10,37,64,0.25)'}}
         aria-label="Zadzwoń teraz"
       >
