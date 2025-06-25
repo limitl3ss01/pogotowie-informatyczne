@@ -142,6 +142,15 @@ export default function Home() {
     };
   }, []);
 
+  // Preloader: strona widoczna dopiero po załadowaniu animacji
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    // Czekaj aż animacje będą gotowe (Particles i Ambulance)
+    let t = setTimeout(() => setIsReady(true), 500); // 500ms po animacjach
+    return () => clearTimeout(t);
+  }, [showParticles, showAmbulance]);
+
   return (
     <div className="relative min-h-screen flex flex-col items-center text-gray-900 overflow-x-hidden" style={{position: 'relative', minHeight: '100vh', overflowX: 'hidden'}}>
       {/* GŁÓWNA TREŚĆ STRONY */}
@@ -437,6 +446,13 @@ export default function Home() {
             <circle cx="20" cy="35" r="4" fill="#ff0" stroke="#0a2540" strokeWidth="1"/>
             <circle cx="20" cy="45" r="4" fill="#ff0" stroke="#0a2540" strokeWidth="1"/>
           </svg>
+        </div>
+      )}
+      {/* Preloader: strona widoczna dopiero po załadowaniu animacji */}
+      {!isReady && (
+        <div className="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-blue-900 to-red-700 z-[9999]">
+          <img src="/79a8410d-e74f-400b-a01a-85111992c764-removebg-preview (1).png" alt="Logo" className="h-24 w-auto animate-bounce mb-4" />
+          <span className="text-white text-2xl font-bold animate-pulse">Ładowanie…</span>
         </div>
       )}
     </div>
