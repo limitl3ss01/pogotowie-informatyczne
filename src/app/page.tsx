@@ -117,14 +117,14 @@ export default function Home() {
   useEffect(() => { setIsMounted(true); }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center text-gray-900 overflow-x-hidden" style={{position: 'relative'}}>
+    <div className="relative flex flex-col items-center text-gray-900 overflow-x-hidden" style={{position: 'relative'}}>
       {/* ANIMOWANE TŁO: tsParticles + animowany gradient tylko po mount */}
       {isMounted && (
         <>
-          <div className="fixed inset-0 -z-10 animate-gradient-move" style={{background: 'linear-gradient(135deg, #0a2540, #e52d27, #1e90ff, #e52d27, #0a2540)'}} />
+          <div className="fixed top-0 left-0 w-full h-full -z-10 animate-gradient-move" style={{background: 'linear-gradient(135deg, #0a2540, #e52d27, #1e90ff, #e52d27, #0a2540)'}} />
           <Particles
             id="tsparticles"
-            className="fixed inset-0 -z-10"
+            className="fixed top-0 left-0 w-full h-full -z-10"
             options={{
               fullScreen: false,
               background: { color: { value: "transparent" } },
