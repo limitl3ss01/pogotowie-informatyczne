@@ -214,7 +214,7 @@ export default function Home() {
         className="w-full flex flex-col items-center justify-center py-12 px-4 text-center text-white relative z-10"
       >
         <h1
-          className={`text-4xl sm:text-6xl mb-4 tracking-tight animate-bounce ${bungee.className}`}
+          className={`text-4xl sm:text-6xl mb-4 tracking-tight animate-bounce ${bungee.className} break-words whitespace-pre-line w-full text-balance`}
           style={{
             textShadow: '0 4px 16px #000, 0 1px 0 #fff, 2px 2px 0 #e52d27, -2px -2px 0 #0a2540',
             letterSpacing: '2px',
