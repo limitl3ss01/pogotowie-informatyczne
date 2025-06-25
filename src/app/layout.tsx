@@ -60,6 +60,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        {/* Stopka z linkami do regulaminu i polityki prywatności */}
+        <footer className="w-full mt-12 flex flex-col items-center justify-center py-6 px-4 bg-gradient-to-t from-blue-100/60 via-white/60 to-red-100/60 backdrop-blur-lg border-t border-white/30">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center justify-center text-sm text-gray-700">
+            <a href="/regulamin" className="hover:underline hover:text-blue-700 transition-colors">Regulamin</a>
+            <span className="hidden sm:inline">|</span>
+            <a href="/polityka-prywatnosci" className="hover:underline hover:text-blue-700 transition-colors">Polityka prywatności</a>
+          </div>
+          <div className="mt-2 text-xs text-gray-400 text-center">&copy; {new Date().getFullYear()} pogotowie-informatyczne.com</div>
+        </footer>
       </body>
     </html>
   );
