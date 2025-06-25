@@ -117,7 +117,7 @@ export default function Home() {
   useEffect(() => { setIsMounted(true); }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center text-gray-900 overflow-x-hidden overflow-y-auto" style={{position: 'relative'}}>
+    <div className="relative min-h-screen flex flex-col items-center text-gray-900 overflow-x-hidden" style={{position: 'relative'}}>
       {/* ANIMOWANE TŁO: tsParticles + animowany gradient tylko po mount */}
       {isMounted && (
         <>
