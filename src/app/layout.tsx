@@ -55,6 +55,18 @@ export default function RootLayout({
         <meta name="twitter:title" content="Pogotowie informatyczne 24/7 – szybka pomoc IT z dojazdem | Cała Polska" />
         <meta name="twitter:description" content="Mobilne pogotowie informatyczne 24/7. Szybka naprawa komputerów, odzyskiwanie danych, instalacja systemów, konfiguracja internetu. Dojazd do klienta na terenie całej Polski." />
         <meta name="twitter:image" content="https://pogotowie-informatyczne.com/og-image.png" />
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17264880777"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17264880777');
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
